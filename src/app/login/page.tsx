@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { supabase } from "@/lib/supabase/client";
@@ -89,7 +89,7 @@ export default function LoginPage() {
         .fade-in-d3 { animation: fade-up 0.6s ease-out 0.3s both; }
       `}</style>
 
-      <div className="fixed inset-0 bg-[#060606] overflow-hidden">
+      <div className="fixed inset-0 bg-white overflow-hidden">
 
         {/* ======================== DESKTOP ======================== */}
         <div className="hidden lg:flex h-full">
@@ -101,7 +101,7 @@ export default function LoginPage() {
               alt="Spoaxio athletes"
               className="w-full h-full object-contain object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#060606]/80" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white/80" />
           </div>
 
           {/* Right — Form */}
@@ -117,10 +117,10 @@ export default function LoginPage() {
             {/* Top nav */}
             <div className="relative z-10 flex items-center justify-end px-10 py-4 shrink-0">
               <div className="flex items-center gap-4">
-                <span className="text-white/40 text-sm">New here?</span>
+                <span className="text-gray-400 text-sm">New here?</span>
                 <Link
                   href="/signup"
-                  className="px-5 py-2 bg-white/[0.06] border border-white/10 text-white rounded-full text-sm font-medium hover:bg-white/10 transition-all"
+                  className="px-5 py-2 bg-gray-100 border border-gray-200 text-gray-900 rounded-full text-sm font-medium hover:bg-gray-200 transition-all"
                 >
                   Create account
                 </Link>
@@ -135,9 +135,9 @@ export default function LoginPage() {
                 <div className="fade-in mb-8">
                   <div className="flex items-center gap-3 mb-6">
                     <img src="/spoaxio-logo.png" alt="Spoaxio" className="w-10 h-10 object-contain" />
-                    <span className="text-lg font-bold tracking-widest text-white">SPOAXIO</span>
+                    <span className="text-lg font-bold tracking-widest text-gray-900">SPOAXIO</span>
                   </div>
-                  <h1 className="text-[32px] font-bold text-white leading-tight">
+                  <h1 className="text-[32px] font-bold text-gray-900 leading-tight">
                     Sign in to your<br />account
                   </h1>
                 </div>
@@ -151,19 +151,19 @@ export default function LoginPage() {
                 {/* Form */}
                 <form onSubmit={handleLogin} className="space-y-4 fade-in-d1">
                   <div>
-                    <label className="block text-sm text-white/50 mb-2 font-medium">Email</label>
+                    <label className="block text-sm text-gray-400 mb-2 font-medium">Email</label>
                     <input
                       type="email"
                       placeholder="you@example.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
-                      className="w-full h-[50px] px-4 bg-white/[0.04] rounded-xl text-white text-[15px] placeholder:text-white/20 outline-none border border-white/[0.08] focus:border-primary/60 focus:bg-white/[0.06] transition-all"
+                      className="w-full h-[50px] px-4 bg-gray-50 rounded-xl text-gray-900 text-[15px] placeholder:text-gray-400 outline-none border border-gray-200 focus:border-primary/60 focus:bg-gray-100 transition-all"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm text-white/50 mb-2 font-medium">Password</label>
+                    <label className="block text-sm text-gray-400 mb-2 font-medium">Password</label>
                     <div className="relative">
                       <input
                         type={showPassword ? "text" : "password"}
@@ -172,12 +172,12 @@ export default function LoginPage() {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                         minLength={6}
-                        className="w-full h-[50px] px-4 pr-12 bg-white/[0.04] rounded-xl text-white text-[15px] placeholder:text-white/20 outline-none border border-white/[0.08] focus:border-primary/60 focus:bg-white/[0.06] transition-all"
+                        className="w-full h-[50px] px-4 pr-12 bg-gray-50 rounded-xl text-gray-900 text-[15px] placeholder:text-gray-400 outline-none border border-gray-200 focus:border-primary/60 focus:bg-gray-100 transition-all"
                       />
                       <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 text-white/30 hover:text-white/60 transition-colors"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-500 transition-colors"
                       >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           {showPassword ? (
@@ -219,14 +219,14 @@ export default function LoginPage() {
 
                 {/* Divider */}
                 <div className="flex items-center gap-4 my-6 fade-in-d2">
-                  <div className="flex-1 h-px bg-white/[0.06]" />
-                  <span className="text-white/25 text-xs uppercase tracking-wider">or</span>
-                  <div className="flex-1 h-px bg-white/[0.06]" />
+                  <div className="flex-1 h-px bg-gray-100" />
+                  <span className="text-gray-500 text-xs uppercase tracking-wider">or</span>
+                  <div className="flex-1 h-px bg-gray-100" />
                 </div>
 
                 {/* Social */}
                 <div className="grid grid-cols-2 gap-3 fade-in-d3">
-                  <button className="h-[46px] bg-white/[0.04] border border-white/[0.08] rounded-xl flex items-center justify-center gap-2 text-white/70 text-sm font-medium hover:bg-white/[0.08] transition-all">
+                  <button className="h-[46px] bg-gray-50 border border-gray-200 rounded-xl flex items-center justify-center gap-2 text-gray-600 text-sm font-medium hover:bg-gray-100 transition-all">
                     <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24">
                       <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
                       <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
@@ -235,7 +235,7 @@ export default function LoginPage() {
                     </svg>
                     Google
                   </button>
-                  <button className="h-[46px] bg-white/[0.04] border border-white/[0.08] rounded-xl flex items-center justify-center gap-2 text-white/70 text-sm font-medium hover:bg-white/[0.08] transition-all">
+                  <button className="h-[46px] bg-gray-50 border border-gray-200 rounded-xl flex items-center justify-center gap-2 text-gray-600 text-sm font-medium hover:bg-gray-100 transition-all">
                     <svg className="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
                     </svg>
@@ -247,10 +247,10 @@ export default function LoginPage() {
 
             {/* Footer */}
             <div className="relative z-10 flex items-center justify-between px-10 py-3 shrink-0">
-              <p className="text-[11px] text-white/20">&copy; 2024 Spoaxio</p>
-              <div className="flex items-center gap-4 text-[11px] text-white/20">
-                <a href="#" className="hover:text-white/40 transition-colors">Terms</a>
-                <a href="#" className="hover:text-white/40 transition-colors">Privacy</a>
+              <p className="text-[11px] text-gray-500">&copy; 2024 Spoaxio</p>
+              <div className="flex items-center gap-4 text-[11px] text-gray-500">
+                <a href="#" className="hover:text-gray-700 transition-colors">Terms</a>
+                <a href="#" className="hover:text-gray-700 transition-colors">Privacy</a>
               </div>
             </div>
           </div>
@@ -261,7 +261,7 @@ export default function LoginPage() {
 
           {/* Animated background */}
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute inset-0 bg-[#060606]" />
+            <div className="absolute inset-0 bg-white" />
 
             {/* Floating orbs */}
             <div className="orb-1 absolute -top-20 -right-20 w-60 h-60 rounded-full bg-primary/[0.07] blur-[80px]" />
@@ -289,11 +289,11 @@ export default function LoginPage() {
           <div className="relative z-10 flex items-center justify-between px-5 pt-safe-top py-4 shrink-0">
             <div className="flex items-center gap-2.5">
               <img src="/spoaxio-logo.png" alt="Spoaxio" className="w-8 h-8 object-contain" />
-              <span className="text-sm font-bold tracking-widest text-white">SPOAXIO</span>
+              <span className="text-sm font-bold tracking-widest text-gray-900">SPOAXIO</span>
             </div>
             <Link
               href="/signup"
-              className="px-4 py-1.5 bg-white/[0.06] border border-white/10 text-white/80 rounded-full text-xs font-medium"
+              className="px-4 py-1.5 bg-gray-100 border border-gray-200 text-gray-700 rounded-full text-xs font-medium"
             >
               Sign Up
             </Link>
@@ -303,10 +303,10 @@ export default function LoginPage() {
           <div className="relative z-10 flex-1 flex flex-col justify-center px-6 min-h-0">
             <div className="w-full max-w-sm mx-auto">
               <div className="fade-in mb-6">
-                <h1 className="text-[28px] font-bold text-white leading-tight mb-1">
+                <h1 className="text-[28px] font-bold text-gray-900 leading-tight mb-1">
                   Welcome back
                 </h1>
-                <p className="text-white/40 text-sm">Sign in to continue your journey</p>
+                <p className="text-gray-400 text-sm">Sign in to continue your journey</p>
               </div>
 
               {error && (
@@ -317,19 +317,19 @@ export default function LoginPage() {
 
               <form onSubmit={handleLogin} className="space-y-3.5 fade-in-d1">
                 <div>
-                  <label className="block text-xs text-white/40 mb-1.5 font-medium uppercase tracking-wider">Email</label>
+                  <label className="block text-xs text-gray-400 mb-1.5 font-medium uppercase tracking-wider">Email</label>
                   <input
                     type="email"
                     placeholder="you@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="w-full h-[48px] px-4 bg-white/[0.05] backdrop-blur-sm rounded-xl text-white text-[15px] placeholder:text-white/20 outline-none border border-white/[0.08] focus:border-primary/50 transition-all"
+                    className="w-full h-[48px] px-4 bg-white/[0.05] backdrop-blur-sm rounded-xl text-gray-900 text-[15px] placeholder:text-gray-400 outline-none border border-gray-200 focus:border-primary/50 transition-all"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs text-white/40 mb-1.5 font-medium uppercase tracking-wider">Password</label>
+                  <label className="block text-xs text-gray-400 mb-1.5 font-medium uppercase tracking-wider">Password</label>
                   <div className="relative">
                     <input
                       type={showPassword ? "text" : "password"}
@@ -338,12 +338,12 @@ export default function LoginPage() {
                       onChange={(e) => setPassword(e.target.value)}
                       required
                       minLength={6}
-                      className="w-full h-[48px] px-4 pr-12 bg-white/[0.05] backdrop-blur-sm rounded-xl text-white text-[15px] placeholder:text-white/20 outline-none border border-white/[0.08] focus:border-primary/50 transition-all"
+                      className="w-full h-[48px] px-4 pr-12 bg-white/[0.05] backdrop-blur-sm rounded-xl text-gray-900 text-[15px] placeholder:text-gray-400 outline-none border border-gray-200 focus:border-primary/50 transition-all"
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 text-white/30 hover:text-white/60 transition-colors"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-500 transition-colors"
                     >
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         {showPassword ? (
@@ -385,14 +385,14 @@ export default function LoginPage() {
 
               {/* Divider */}
               <div className="flex items-center gap-4 my-5 fade-in-d2">
-                <div className="flex-1 h-px bg-white/[0.06]" />
-                <span className="text-white/25 text-xs uppercase tracking-wider">or</span>
-                <div className="flex-1 h-px bg-white/[0.06]" />
+                <div className="flex-1 h-px bg-gray-100" />
+                <span className="text-gray-500 text-xs uppercase tracking-wider">or</span>
+                <div className="flex-1 h-px bg-gray-100" />
               </div>
 
               {/* Social */}
               <div className="grid grid-cols-2 gap-3 fade-in-d3">
-                <button className="h-[46px] bg-white/[0.04] backdrop-blur-sm border border-white/[0.08] rounded-xl flex items-center justify-center gap-2 text-white/70 text-sm font-medium hover:bg-white/[0.08] transition-all">
+                <button className="h-[46px] bg-gray-50 backdrop-blur-sm border border-gray-200 rounded-xl flex items-center justify-center gap-2 text-gray-600 text-sm font-medium hover:bg-gray-100 transition-all">
                   <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24">
                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
                     <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
@@ -401,7 +401,7 @@ export default function LoginPage() {
                   </svg>
                   Google
                 </button>
-                <button className="h-[46px] bg-white/[0.04] backdrop-blur-sm border border-white/[0.08] rounded-xl flex items-center justify-center gap-2 text-white/70 text-sm font-medium hover:bg-white/[0.08] transition-all">
+                <button className="h-[46px] bg-gray-50 backdrop-blur-sm border border-gray-200 rounded-xl flex items-center justify-center gap-2 text-gray-600 text-sm font-medium hover:bg-gray-100 transition-all">
                   <svg className="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
                   </svg>
@@ -409,7 +409,7 @@ export default function LoginPage() {
                 </button>
               </div>
 
-              <p className="text-center mt-6 text-sm text-white/30 fade-in-d3">
+              <p className="text-center mt-6 text-sm text-gray-500 fade-in-d3">
                 Don&apos;t have an account?{" "}
                 <Link href="/signup" className="text-primary font-semibold hover:text-primary/80 transition-colors">
                   Sign Up
@@ -420,7 +420,7 @@ export default function LoginPage() {
 
           {/* Footer */}
           <div className="relative z-10 flex items-center justify-center px-5 py-3 shrink-0">
-            <p className="text-[11px] text-white/15">&copy; 2024 Spoaxio. All rights reserved.</p>
+            <p className="text-[11px] text-gray-500">&copy; 2024 Spoaxio. All rights reserved.</p>
           </div>
         </div>
       </div>

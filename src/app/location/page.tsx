@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -64,7 +64,7 @@ export default function LocationPage() {
         .orb-2{animation:drift2 10s ease-in-out infinite}
       `}</style>
 
-      <div className="fixed inset-0 bg-[#060606] overflow-hidden">
+      <div className="fixed inset-0 bg-white overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0">
           <div className="orb-1 absolute -top-16 right-[10%] w-52 h-52 rounded-full bg-blue-500/[0.05] blur-[80px]" />
@@ -75,14 +75,14 @@ export default function LocationPage() {
         <div className="relative z-10 h-full flex flex-col">
           {/* Top bar */}
           <div className="flex items-center justify-between px-6 py-4 shrink-0">
-            <button onClick={() => router.back()} className="w-9 h-9 bg-white/[0.06] rounded-xl flex items-center justify-center">
-              <svg className="w-4 h-4 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button onClick={() => router.back()} className="w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center">
+              <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
             <button
               onClick={() => router.push("/sports")}
-              className="text-sm text-white/40 hover:text-white/60 transition-colors"
+              className="text-sm text-gray-400 hover:text-gray-500 transition-colors"
             >
               Skip
             </button>
@@ -98,8 +98,8 @@ export default function LocationPage() {
                 </svg>
               </div>
             </div>
-            <h1 className="text-[28px] font-bold text-white text-center mb-1">Choose your location</h1>
-            <p className="text-white/40 text-sm text-center">Find sports near you</p>
+            <h1 className="text-[28px] font-bold text-gray-900 text-center mb-1">Choose your location</h1>
+            <p className="text-gray-400 text-sm text-center">Find sports near you</p>
           </div>
 
           {/* Detect location */}
@@ -126,7 +126,7 @@ export default function LocationPage() {
           {/* Search */}
           <div className="px-6 mb-4 shrink-0">
             <div className="relative">
-              <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
               <input
@@ -134,14 +134,14 @@ export default function LocationPage() {
                 placeholder="Search city..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full h-[44px] pl-10 pr-4 bg-white/[0.04] rounded-xl text-white text-sm placeholder:text-white/20 outline-none border border-white/[0.08] focus:border-primary/50 transition-all"
+                className="w-full h-[44px] pl-10 pr-4 bg-gray-50 rounded-xl text-gray-900 text-sm placeholder:text-gray-400 outline-none border border-gray-200 focus:border-primary/50 transition-all"
               />
             </div>
           </div>
 
           {/* City grid */}
           <div className="flex-1 px-6 overflow-y-auto min-h-0 pb-4">
-            <p className="text-[11px] text-white/25 uppercase tracking-wider font-medium mb-3">Popular cities</p>
+            <p className="text-[11px] text-gray-500 uppercase tracking-wider font-medium mb-3">Popular cities</p>
             <div className="grid grid-cols-3 gap-2.5">
               {filtered.map((city) => (
                 <button
@@ -149,12 +149,12 @@ export default function LocationPage() {
                   onClick={() => setSelected(city.name)}
                   className={`py-3.5 px-2 rounded-xl text-center transition-all border ${
                     selected === city.name
-                      ? "bg-primary/10 border-primary/30 text-white"
-                      : "bg-white/[0.03] border-white/[0.06] text-white/60 hover:bg-white/[0.06]"
+                      ? "bg-primary/10 border-primary/30 text-gray-900"
+                      : "bg-gray-50 border-gray-200 text-gray-500 hover:bg-gray-100"
                   }`}
                 >
                   <p className="text-sm font-medium">{city.name}</p>
-                  <p className="text-[10px] text-white/30 mt-0.5">{city.state}</p>
+                  <p className="text-[10px] text-gray-500 mt-0.5">{city.state}</p>
                 </button>
               ))}
             </div>

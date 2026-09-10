@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -46,7 +46,7 @@ export default function SportsPage() {
         .orb-2{animation:drift2 13s ease-in-out infinite}
       `}</style>
 
-      <div className="fixed inset-0 bg-[#060606] overflow-hidden">
+      <div className="fixed inset-0 bg-white overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0">
           <div className="orb-1 absolute top-[10%] -right-16 w-56 h-56 rounded-full bg-primary/[0.06] blur-[80px]" />
@@ -57,14 +57,14 @@ export default function SportsPage() {
         <div className="relative z-10 h-full flex flex-col">
           {/* Top bar */}
           <div className="flex items-center justify-between px-6 py-4 shrink-0">
-            <button onClick={() => router.back()} className="w-9 h-9 bg-white/[0.06] rounded-xl flex items-center justify-center">
-              <svg className="w-4 h-4 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button onClick={() => router.back()} className="w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center">
+              <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
             <button
               onClick={() => router.push("/profile/create")}
-              className="text-sm text-white/40 hover:text-white/60 transition-colors"
+              className="text-sm text-gray-400 hover:text-gray-500 transition-colors"
             >
               Skip
             </button>
@@ -72,8 +72,8 @@ export default function SportsPage() {
 
           {/* Header */}
           <div className="px-6 mb-5 shrink-0">
-            <h1 className="text-[28px] font-bold text-white mb-1">Choose your sports</h1>
-            <p className="text-white/40 text-sm">
+            <h1 className="text-[28px] font-bold text-gray-900 mb-1">Choose your sports</h1>
+            <p className="text-gray-400 text-sm">
               Select the sports you play or follow
               {selected.length > 0 && (
                 <span className="text-primary ml-1">({selected.length} selected)</span>
@@ -93,7 +93,7 @@ export default function SportsPage() {
                     className={`relative py-5 px-2 rounded-2xl text-center transition-all border ${
                       isSelected
                         ? "bg-primary/10 border-primary/30 scale-[1.02]"
-                        : "bg-white/[0.03] border-white/[0.06] hover:bg-white/[0.06]"
+                        : "bg-gray-50 border-gray-200 hover:bg-gray-100"
                     }`}
                   >
                     {isSelected && (
@@ -104,7 +104,7 @@ export default function SportsPage() {
                       </div>
                     )}
                     <div className="text-3xl mb-2">{sport.emoji}</div>
-                    <p className={`text-xs font-medium ${isSelected ? "text-white" : "text-white/60"}`}>
+                    <p className={`text-xs font-medium ${isSelected ? "text-gray-900" : "text-gray-500"}`}>
                       {sport.name}
                     </p>
                   </button>

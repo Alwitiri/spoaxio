@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
@@ -102,7 +102,7 @@ export default function OnboardingPage() {
       `}</style>
 
       <div
-        className="fixed inset-0 bg-[#060606] flex flex-col overflow-hidden"
+        className="fixed inset-0 bg-white flex flex-col overflow-hidden"
         onTouchStart={(e) => setTouchStart(e.touches[0].clientX)}
         onTouchEnd={(e) => {
           if (touchStart === null) return;
@@ -134,11 +134,11 @@ export default function OnboardingPage() {
         <div className="relative z-10 flex items-center justify-between px-6 py-4 shrink-0">
           <div className="flex items-center gap-2.5">
             <img src="/spoaxio-logo.png" alt="Spoaxio" className="w-8 h-8 object-contain" />
-            <span className="text-sm font-bold tracking-widest text-white">SPOAXIO</span>
+            <span className="text-sm font-bold tracking-widest text-gray-900">SPOAXIO</span>
           </div>
           <button
             onClick={() => router.push("/login")}
-            className="text-sm text-white/40 hover:text-white/60 transition-colors"
+            className="text-sm text-gray-400 hover:text-gray-500 transition-colors"
           >
             Skip
           </button>
@@ -168,11 +168,11 @@ export default function OnboardingPage() {
 
             {/* Text */}
             <div className="text-center max-w-sm mx-auto">
-              <h2 className="text-4xl font-bold text-white mb-2">{slide.title}</h2>
+              <h2 className="text-4xl font-bold text-gray-900 mb-2">{slide.title}</h2>
               <p className="text-lg font-medium mb-4" style={{ color: slide.color }}>
                 {slide.subtitle}
               </p>
-              <p className="text-white/40 text-[15px] leading-relaxed">
+              <p className="text-gray-400 text-[15px] leading-relaxed">
                 {slide.description}
               </p>
             </div>
@@ -201,7 +201,7 @@ export default function OnboardingPage() {
             {current > 0 && (
               <button
                 onClick={prev}
-                className="h-[52px] px-6 bg-white/[0.06] border border-white/[0.08] rounded-xl text-white/60 text-[15px] font-medium hover:bg-white/[0.1] transition-all"
+                className="h-[52px] px-6 bg-gray-100 border border-gray-200 rounded-xl text-gray-500 text-[15px] font-medium hover:bg-gray-200 transition-all"
               >
                 Back
               </button>

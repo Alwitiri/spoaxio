@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
@@ -127,26 +127,26 @@ export default function HomePage() {
         .float-anim { animation: float 3s ease-in-out infinite }
       `}</style>
 
-      <div className="fixed inset-0 bg-[#060606] flex flex-col">
+      <div className="fixed inset-0 bg-white flex flex-col">
         {/* Header */}
         <div className="px-5 pt-5 pb-2 shrink-0">
           <div className="flex items-center justify-between mb-4">
             <div>
               <p className="text-primary/60 text-[11px] uppercase tracking-widest font-semibold">{greeting}</p>
-              <h1 className="text-xl font-bold text-white mt-0.5">{displayName}</h1>
+              <h1 className="text-xl font-bold text-gray-900 mt-0.5">{displayName}</h1>
             </div>
             <div className="flex items-center gap-2.5">
-              <button className="w-9 h-9 bg-white/[0.06] rounded-xl flex items-center justify-center hover:bg-white/[0.08] transition-colors relative">
-                <svg className="w-[18px] h-[18px] text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+              <button className="w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center hover:bg-gray-100 transition-colors relative">
+                <svg className="w-[18px] h-[18px] text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
                 </svg>
                 <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-primary rounded-full" />
               </button>
               <button
                 onClick={handleSignOut}
-                className="w-9 h-9 bg-white/[0.06] rounded-xl flex items-center justify-center hover:bg-white/[0.08] transition-colors"
+                className="w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center hover:bg-gray-100 transition-colors"
               >
-                <svg className="w-[18px] h-[18px] text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                <svg className="w-[18px] h-[18px] text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                 </svg>
               </button>
@@ -155,13 +155,13 @@ export default function HomePage() {
 
           {/* "What do you want to play?" prompt */}
           <Link href="/games" className="block relative mb-3">
-            <div className="flex items-center gap-3 px-4 py-3 bg-white/[0.04] rounded-2xl border border-white/[0.06] hover:border-primary/20 transition-all group">
+            <div className="flex items-center gap-3 px-4 py-3 bg-gray-50 rounded-2xl border border-gray-200 hover:border-primary/20 transition-all group">
               <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
                 <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </div>
-              <span className="text-sm text-white/25 group-hover:text-white/35 transition-colors">What do you want to play?</span>
+              <span className="text-sm text-gray-500 group-hover:text-gray-500 transition-colors">What do you want to play?</span>
             </div>
           </Link>
         </div>
@@ -185,7 +185,7 @@ export default function HomePage() {
                         <div className="absolute inset-0 bg-primary rounded-full" />
                         <div className="absolute inset-0 bg-primary rounded-full animate-ping" />
                       </div>
-                      <h2 className="text-sm font-semibold text-white">Games Near You</h2>
+                      <h2 className="text-sm font-semibold text-gray-900">Games Near You</h2>
                     </div>
                     <Link href="/games" className="text-[11px] text-primary/60 hover:text-primary transition-colors">See all</Link>
                   </div>
@@ -199,7 +199,7 @@ export default function HomePage() {
                         className={`flex-shrink-0 px-3 py-1.5 rounded-full text-[11px] font-medium transition-all ${
                           activeSport === s
                             ? "bg-primary/15 text-primary border border-primary/25"
-                            : "bg-white/[0.03] text-white/30 border border-transparent hover:text-white/50"
+                            : "bg-gray-50 text-gray-500 border border-transparent hover:text-gray-700"
                         }`}
                       >
                         {s}
@@ -216,7 +216,7 @@ export default function HomePage() {
                         <Link
                           key={game.id}
                           href={`/games/${game.id}`}
-                          className="flex-shrink-0 w-[280px] snap-start bg-white/[0.03] border border-white/[0.06] rounded-2xl p-4 hover:bg-white/[0.05] transition-all group"
+                          className="flex-shrink-0 w-[280px] snap-start bg-gray-50 border border-gray-200 rounded-2xl p-4 hover:bg-gray-100 transition-all group"
                         >
                           <div className="flex items-start justify-between mb-3">
                             <div className="flex items-center gap-2.5">
@@ -227,37 +227,37 @@ export default function HomePage() {
                                 {game.emoji}
                               </div>
                               <div>
-                                <h3 className="text-[13px] font-semibold text-white group-hover:text-primary/90 transition-colors">{game.title}</h3>
-                                <p className="text-[10px] text-white/30">{game.sport} · {game.skill}</p>
+                                <h3 className="text-[13px] font-semibold text-gray-900 group-hover:text-primary/90 transition-colors">{game.title}</h3>
+                                <p className="text-[10px] text-gray-500">{game.sport} · {game.skill}</p>
                               </div>
                             </div>
                           </div>
 
                           <div className="space-y-2 mb-3">
                             <div className="flex items-center gap-1.5">
-                              <svg className="w-3 h-3 text-white/20 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                              <svg className="w-3 h-3 text-gray-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                               </svg>
-                              <span className="text-[11px] text-white/40">{game.venue}</span>
+                              <span className="text-[11px] text-gray-400">{game.venue}</span>
                             </div>
                             <div className="flex items-center gap-1.5">
-                              <svg className="w-3 h-3 text-white/20 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                              <svg className="w-3 h-3 text-gray-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                               </svg>
-                              <span className="text-[11px] text-white/40">{game.time}</span>
+                              <span className="text-[11px] text-gray-400">{game.time}</span>
                             </div>
                           </div>
 
                           {/* Player fill bar */}
                           <div className="mb-3">
                             <div className="flex items-center justify-between mb-1">
-                              <span className="text-[10px] text-white/25">{game.players.current}/{game.players.total} players</span>
+                              <span className="text-[10px] text-gray-500">{game.players.current}/{game.players.total} players</span>
                               <span className="text-[10px] font-medium" style={{ color: spotsLeft <= 2 ? "#FF5722" : "#00E676" }}>
                                 {spotsLeft} spot{spotsLeft !== 1 ? "s" : ""} left
                               </span>
                             </div>
-                            <div className="h-1.5 bg-white/[0.06] rounded-full overflow-hidden">
+                            <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
                               <div
                                 className="h-full rounded-full transition-all duration-500"
                                 style={{ width: `${fillPercent}%`, backgroundColor: game.color }}
@@ -266,8 +266,8 @@ export default function HomePage() {
                           </div>
 
                           <div className="flex items-center justify-between">
-                            <span className="text-xs text-white/25">{game.distance}</span>
-                            <span className="text-sm font-bold text-white">₹{game.price}<span className="text-[10px] text-white/30 font-normal">/player</span></span>
+                            <span className="text-xs text-gray-500">{game.distance}</span>
+                            <span className="text-sm font-bold text-gray-900">₹{game.price}<span className="text-[10px] text-gray-500 font-normal">/player</span></span>
                           </div>
                         </Link>
                       );
@@ -285,7 +285,7 @@ export default function HomePage() {
                       </div>
                       <div className="text-center">
                         <p className="text-sm font-medium text-primary/80">Create a Game</p>
-                        <p className="text-[11px] text-white/20 mt-0.5">Invite players nearby</p>
+                        <p className="text-[11px] text-gray-500 mt-0.5">Invite players nearby</p>
                       </div>
                     </button>
                   </div>
@@ -294,7 +294,7 @@ export default function HomePage() {
                 {/* Available Right Now */}
                 <motion.div variants={fadeUp} className="mb-5">
                   <div className="flex items-center justify-between mb-3">
-                    <h2 className="text-sm font-semibold text-white">Available Right Now</h2>
+                    <h2 className="text-sm font-semibold text-gray-900">Available Right Now</h2>
                     <Link href="/turfs" className="text-[11px] text-primary/60 hover:text-primary transition-colors">See all</Link>
                   </div>
                   <div className="space-y-2">
@@ -302,16 +302,16 @@ export default function HomePage() {
                       <Link
                         key={v.name}
                         href="/turfs"
-                        className="flex items-center gap-3 p-3 bg-white/[0.03] border border-white/[0.06] rounded-xl hover:bg-white/[0.05] transition-all"
+                        className="flex items-center gap-3 p-3 bg-gray-50 border border-gray-200 rounded-xl hover:bg-gray-100 transition-all"
                       >
-                        <div className="w-10 h-10 bg-white/[0.04] rounded-lg flex items-center justify-center text-lg shrink-0">{v.sport}</div>
+                        <div className="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center text-lg shrink-0">{v.sport}</div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-xs font-medium text-white truncate">{v.name}</p>
-                          <p className="text-[10px] text-white/25">{v.distance} · {v.slots} slots today</p>
+                          <p className="text-xs font-medium text-gray-900 truncate">{v.name}</p>
+                          <p className="text-[10px] text-gray-500">{v.distance} · {v.slots} slots today</p>
                         </div>
                         <div className="text-right shrink-0">
-                          <p className="text-xs font-bold text-white">₹{v.price}</p>
-                          <p className="text-[9px] text-white/20">/hr</p>
+                          <p className="text-xs font-bold text-gray-900">₹{v.price}</p>
+                          <p className="text-[9px] text-gray-500">/hr</p>
                         </div>
                       </Link>
                     ))}
@@ -321,21 +321,21 @@ export default function HomePage() {
                 {/* Players Looking to Play */}
                 <motion.div variants={fadeUp} className="mb-5">
                   <div className="flex items-center justify-between mb-3">
-                    <h2 className="text-sm font-semibold text-white">Players Near You</h2>
+                    <h2 className="text-sm font-semibold text-gray-900">Players Near You</h2>
                     <Link href="/players" className="text-[11px] text-primary/60 hover:text-primary transition-colors">See all</Link>
                   </div>
                   <div className="flex gap-3 overflow-x-auto pb-1 -mx-1 px-1">
                     {activePlayers.map((p) => (
                       <div
                         key={p.name}
-                        className="flex-shrink-0 w-[120px] bg-white/[0.03] border border-white/[0.06] rounded-2xl p-3 text-center hover:bg-white/[0.05] transition-all"
+                        className="flex-shrink-0 w-[120px] bg-gray-50 border border-gray-200 rounded-2xl p-3 text-center hover:bg-gray-100 transition-all"
                       >
                         <div className="w-11 h-11 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
                           <span className="text-sm font-bold text-primary">{p.name[0]}</span>
                         </div>
-                        <p className="text-[11px] font-medium text-white truncate">{p.name}</p>
-                        <p className="text-[10px] text-white/25 mt-0.5">{p.emoji} {p.skill}</p>
-                        <p className="text-[9px] text-white/15 mt-0.5">{p.distance}</p>
+                        <p className="text-[11px] font-medium text-gray-900 truncate">{p.name}</p>
+                        <p className="text-[10px] text-gray-500 mt-0.5">{p.emoji} {p.skill}</p>
+                        <p className="text-[9px] text-gray-500 mt-0.5">{p.distance}</p>
                       </div>
                     ))}
                   </div>
@@ -344,19 +344,19 @@ export default function HomePage() {
                 {/* Local Events */}
                 <motion.div variants={fadeUp} className="mb-6">
                   <div className="flex items-center justify-between mb-3">
-                    <h2 className="text-sm font-semibold text-white">Local Events</h2>
+                    <h2 className="text-sm font-semibold text-gray-900">Local Events</h2>
                     <span className="text-[11px] text-primary/60">Chennai</span>
                   </div>
                   <div className="space-y-2">
                     {localEvents.map((ev) => (
                       <div
                         key={ev.name}
-                        className="flex items-center gap-3 p-3 bg-white/[0.03] border border-white/[0.06] rounded-xl hover:bg-white/[0.05] transition-all cursor-pointer"
+                        className="flex items-center gap-3 p-3 bg-gray-50 border border-gray-200 rounded-xl hover:bg-gray-100 transition-all cursor-pointer"
                       >
                         <div className="w-10 h-10 bg-yellow-500/10 rounded-lg flex items-center justify-center text-lg shrink-0">🏆</div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-xs font-medium text-white truncate">{ev.name}</p>
-                          <p className="text-[10px] text-white/25">{ev.date} · {ev.location}</p>
+                          <p className="text-xs font-medium text-gray-900 truncate">{ev.name}</p>
+                          <p className="text-[10px] text-gray-500">{ev.date} · {ev.location}</p>
                         </div>
                         <span className="text-[10px] text-primary/60 font-medium shrink-0">{ev.fee}</span>
                       </div>
@@ -383,10 +383,10 @@ export default function HomePage() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                     </svg>
                   </div>
-                  <p className="text-base font-semibold text-white/50 mb-1">
+                  <p className="text-base font-semibold text-gray-400 mb-1">
                     {activeTab === "games" ? "Games" : activeTab === "players" ? "Find Players" : activeTab === "create" ? "Create Game" : "Profile"}
                   </p>
-                  <p className="text-xs text-white/20">Coming soon</p>
+                  <p className="text-xs text-gray-500">Coming soon</p>
                 </div>
               </motion.div>
             )}
@@ -394,7 +394,7 @@ export default function HomePage() {
         </div>
 
         {/* Bottom nav */}
-        <nav className="bg-[#0a0a0a] border-t border-white/[0.06] shrink-0">
+        <nav className="bg-white border-t border-gray-200 shrink-0">
           <div className="flex justify-around py-2">
             {navTabs.map((tab) => (
               <button
@@ -404,7 +404,7 @@ export default function HomePage() {
                   scrollRef.current?.scrollTo({ top: 0, behavior: "smooth" });
                 }}
                 className={`flex flex-col items-center gap-0.5 px-3 py-1.5 transition-colors relative ${
-                  activeTab === tab.id ? "text-primary" : "text-white/25 hover:text-white/40"
+                  activeTab === tab.id ? "text-primary" : "text-gray-500 hover:text-gray-700"
                 }`}
               >
                 {tab.id === "create" ? (

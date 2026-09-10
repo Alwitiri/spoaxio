@@ -80,17 +80,17 @@ export default function PlayerProfilePage() {
   const [activeTab, setActiveTab] = useState<"stats" | "games" | "sports">("stats");
 
   return (
-    <div className="fixed inset-0 bg-[#060606] flex flex-col">
+    <div className="fixed inset-0 bg-white flex flex-col">
       {/* Header */}
       <div className="px-5 pt-5 pb-4 shrink-0">
         <div className="flex items-center justify-between mb-5">
-          <button onClick={() => router.back()} className="w-9 h-9 bg-white/[0.06] rounded-xl flex items-center justify-center">
-            <svg className="w-4 h-4 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button onClick={() => router.back()} className="w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center">
+            <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-          <button className="w-9 h-9 bg-white/[0.06] rounded-xl flex items-center justify-center">
-            <svg className="w-4 h-4 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+          <button className="w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center">
+            <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
             </svg>
           </button>
@@ -102,15 +102,15 @@ export default function PlayerProfilePage() {
             <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center">
               <span className="text-2xl font-bold text-primary">{player.avatar}</span>
             </div>
-            <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-[#060606] flex items-center justify-center">
-              <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+              <svg className="w-2.5 h-2.5 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
             </div>
           </div>
           <div className="flex-1">
-            <h1 className="text-xl font-bold text-white">{player.name}</h1>
-            <p className="text-xs text-white/25">{player.area} · {player.distance}</p>
+            <h1 className="text-xl font-bold text-gray-900">{player.name}</h1>
+            <p className="text-xs text-gray-500">{player.area} · {player.distance}</p>
             <div className="flex items-center gap-3 mt-1.5">
               <div className="flex items-center gap-1">
                 <svg className="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -118,7 +118,7 @@ export default function PlayerProfilePage() {
                 </svg>
                 <span className="text-xs font-bold text-yellow-400">{player.rating}</span>
               </div>
-              <span className="text-[10px] text-white/15">Member since {player.memberSince}</span>
+              <span className="text-[10px] text-gray-500">Member since {player.memberSince}</span>
             </div>
           </div>
         </div>
@@ -128,7 +128,7 @@ export default function PlayerProfilePage() {
           <button className="flex-1 py-2.5 bg-primary hover:brightness-110 rounded-xl text-xs font-semibold text-black transition-all">
             Invite to Game
           </button>
-          <button className="flex-1 py-2.5 bg-white/[0.06] rounded-xl text-xs font-medium text-white/40 transition-all hover:bg-white/[0.08]">
+          <button className="flex-1 py-2.5 bg-gray-100 rounded-xl text-xs font-medium text-gray-400 transition-all hover:bg-gray-100">
             Message
           </button>
         </div>
@@ -141,9 +141,9 @@ export default function PlayerProfilePage() {
             { label: "Win Rate", value: `${player.winRate}%` },
             { label: "Sports", value: player.sports.length },
           ].map((s) => (
-            <div key={s.label} className="bg-white/[0.03] rounded-xl p-2.5 text-center">
-              <p className="text-sm font-bold text-white">{s.value}</p>
-              <p className="text-[8px] text-white/20 mt-0.5">{s.label}</p>
+            <div key={s.label} className="bg-gray-50 rounded-xl p-2.5 text-center">
+              <p className="text-sm font-bold text-gray-900">{s.value}</p>
+              <p className="text-[8px] text-gray-500 mt-0.5">{s.label}</p>
             </div>
           ))}
         </div>
@@ -151,13 +151,13 @@ export default function PlayerProfilePage() {
 
       {/* Tabs */}
       <div className="px-5 pb-1 shrink-0">
-        <div className="flex gap-1 bg-white/[0.03] rounded-xl p-1">
+        <div className="flex gap-1 bg-gray-50 rounded-xl p-1">
           {(["stats", "games", "sports"] as const).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
               className={`flex-1 py-2 rounded-lg text-xs font-medium transition-all ${
-                activeTab === tab ? "bg-white/[0.08] text-white" : "text-white/30"
+                activeTab === tab ? "bg-gray-100 text-gray-900" : "text-gray-500"
               }`}
             >
               {tab === "stats" ? "Overview" : tab === "games" ? "Recent Games" : "Sports"}
@@ -172,12 +172,12 @@ export default function PlayerProfilePage() {
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
             {/* Bio */}
             <div>
-              <h3 className="text-sm font-semibold text-white mb-1.5">About</h3>
-              <p className="text-xs text-white/35 leading-relaxed">{player.bio}</p>
+              <h3 className="text-sm font-semibold text-gray-900 mb-1.5">About</h3>
+              <p className="text-xs text-gray-500 leading-relaxed">{player.bio}</p>
             </div>
 
             {/* Availability */}
-            <div className="p-3 bg-white/[0.03] border border-white/[0.06] rounded-xl">
+            <div className="p-3 bg-gray-50 border border-gray-200 rounded-xl">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
                   <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
@@ -185,8 +185,8 @@ export default function PlayerProfilePage() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs font-medium text-white">Available</p>
-                  <p className="text-[10px] text-white/25">{player.availability}</p>
+                  <p className="text-xs font-medium text-gray-900">Available</p>
+                  <p className="text-[10px] text-gray-500">{player.availability}</p>
                 </div>
               </div>
             </div>
@@ -194,10 +194,10 @@ export default function PlayerProfilePage() {
             {/* Badges */}
             {player.badges.length > 0 && (
               <div>
-                <h3 className="text-sm font-semibold text-white mb-2">Achievements</h3>
+                <h3 className="text-sm font-semibold text-gray-900 mb-2">Achievements</h3>
                 <div className="flex gap-2">
                   {player.badges.map((b) => (
-                    <div key={b.name} className="flex-1 p-3 bg-white/[0.03] border border-white/[0.06] rounded-xl text-center">
+                    <div key={b.name} className="flex-1 p-3 bg-gray-50 border border-gray-200 rounded-xl text-center">
                       <span className="text-lg block mb-1">{b.icon}</span>
                       <p className="text-[9px] font-medium" style={{ color: b.color }}>{b.name}</p>
                     </div>
@@ -209,14 +209,14 @@ export default function PlayerProfilePage() {
             {/* Mutual players */}
             {player.mutualPlayers.length > 0 && (
               <div>
-                <h3 className="text-sm font-semibold text-white mb-2">Players you both know</h3>
+                <h3 className="text-sm font-semibold text-gray-900 mb-2">Players you both know</h3>
                 <div className="flex gap-2">
                   {player.mutualPlayers.map((m) => (
-                    <div key={m.name} className="flex items-center gap-2 bg-white/[0.03] border border-white/[0.06] rounded-xl px-3 py-2">
+                    <div key={m.name} className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
                       <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center">
                         <span className="text-[8px] font-bold text-primary">{m.avatar}</span>
                       </div>
-                      <span className="text-[10px] text-white/40">{m.name}</span>
+                      <span className="text-[10px] text-gray-400">{m.name}</span>
                     </div>
                   ))}
                 </div>
@@ -228,13 +228,13 @@ export default function PlayerProfilePage() {
         {activeTab === "games" && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-2">
             {player.recentGames.map((g, i) => (
-              <div key={i} className="flex items-center gap-3 p-3 bg-white/[0.03] border border-white/[0.06] rounded-xl">
-                <div className="w-9 h-9 bg-white/[0.04] rounded-lg flex items-center justify-center text-lg">
+              <div key={i} className="flex items-center gap-3 p-3 bg-gray-50 border border-gray-200 rounded-xl">
+                <div className="w-9 h-9 bg-gray-50 rounded-lg flex items-center justify-center text-lg">
                   {g.sport}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-xs font-medium text-white">{g.title}</p>
-                  <p className="text-[10px] text-white/20">{g.date}</p>
+                  <p className="text-xs font-medium text-gray-900">{g.title}</p>
+                  <p className="text-[10px] text-gray-500">{g.date}</p>
                 </div>
                 <span className={`text-[10px] font-medium px-2 py-0.5 rounded ${
                   g.result.includes("Won") ? "text-primary bg-primary/10" :
@@ -252,22 +252,22 @@ export default function PlayerProfilePage() {
         {activeTab === "sports" && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-3">
             {player.sports.map((s) => (
-              <div key={s.name} className="p-4 bg-white/[0.03] border border-white/[0.06] rounded-2xl">
+              <div key={s.name} className="p-4 bg-gray-50 border border-gray-200 rounded-2xl">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-11 h-11 bg-white/[0.04] rounded-xl flex items-center justify-center text-xl">
+                  <div className="w-11 h-11 bg-gray-50 rounded-xl flex items-center justify-center text-xl">
                     {s.emoji}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-sm font-semibold text-white">{s.name}</h3>
+                    <h3 className="text-sm font-semibold text-gray-900">{s.name}</h3>
                     <div className="flex items-center gap-2 mt-0.5">
                       <span className="px-1.5 py-0.5 rounded text-[9px] font-medium" style={{ backgroundColor: `${skillColors[s.skill]}12`, color: skillColors[s.skill] }}>
                         {s.skill}
                       </span>
-                      <span className="text-[10px] text-white/20">{s.games} games played</span>
+                      <span className="text-[10px] text-gray-500">{s.games} games played</span>
                     </div>
                   </div>
                 </div>
-                <div className="h-1.5 bg-white/[0.06] rounded-full overflow-hidden">
+                <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${Math.min(100, (s.games / 60) * 100)}%` }}

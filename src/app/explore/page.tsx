@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -43,21 +43,21 @@ export default function ExplorePage() {
     : [];
 
   return (
-    <div className="fixed inset-0 bg-[#060606] flex flex-col">
+    <div className="fixed inset-0 bg-white flex flex-col">
       {/* Header */}
       <div className="px-5 pt-5 pb-3 shrink-0">
         <div className="flex items-center gap-3 mb-3">
-          <button onClick={() => router.push("/home")} className="w-9 h-9 bg-white/[0.06] rounded-xl flex items-center justify-center shrink-0">
-            <svg className="w-4 h-4 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button onClick={() => router.push("/home")} className="w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center shrink-0">
+            <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-          <h1 className="text-lg font-bold text-white">Explore</h1>
+          <h1 className="text-lg font-bold text-gray-900">Explore</h1>
         </div>
 
         {/* Search bar */}
         <div className="relative">
-          <svg className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/15" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+          <svg className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
           </svg>
           <input
@@ -67,11 +67,11 @@ export default function ExplorePage() {
             onFocus={() => setFocused(true)}
             onBlur={() => setTimeout(() => setFocused(false), 200)}
             placeholder="Search games, venues, players..."
-            className="w-full pl-10 pr-4 py-3 bg-white/[0.04] border border-white/[0.08] rounded-xl text-sm text-white placeholder:text-white/15 focus:outline-none focus:border-primary/20"
+            className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-primary/20"
           />
           {search && (
-            <button onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 bg-white/[0.08] rounded-full flex items-center justify-center">
-              <svg className="w-3 h-3 text-white/30" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+            <button onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 bg-gray-100 rounded-full flex items-center justify-center">
+              <svg className="w-3 h-3 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
@@ -84,25 +84,25 @@ export default function ExplorePage() {
         {/* Search results */}
         {search.trim() && (
           <div className="mb-4">
-            <p className="text-[10px] text-white/20 uppercase tracking-wider mb-2">Results</p>
+            <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-2">Results</p>
             {filtered.length > 0 ? (
               <div className="space-y-1.5">
                 {filtered.map((r, i) => (
-                  <Link key={i} href={r.href} className="flex items-center gap-3 p-3 bg-white/[0.03] border border-white/[0.06] rounded-xl hover:bg-white/[0.05] transition-all">
+                  <Link key={i} href={r.href} className="flex items-center gap-3 p-3 bg-gray-50 border border-gray-200 rounded-xl hover:bg-gray-100 transition-all">
                     <div className="w-9 h-9 rounded-lg flex items-center justify-center text-lg" style={{ backgroundColor: `${r.color}10` }}>
                       {r.emoji}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-xs font-medium text-white">{r.title}</p>
-                      <p className="text-[10px] text-white/25">{r.sub}</p>
+                      <p className="text-xs font-medium text-gray-900">{r.title}</p>
+                      <p className="text-[10px] text-gray-500">{r.sub}</p>
                     </div>
-                    <span className="text-[8px] text-white/15 uppercase font-medium">{r.type}</span>
+                    <span className="text-[8px] text-gray-500 uppercase font-medium">{r.type}</span>
                   </Link>
                 ))}
               </div>
             ) : (
               <div className="py-8 text-center">
-                <p className="text-xs text-white/25">No results for &quot;{search}&quot;</p>
+                <p className="text-xs text-gray-500">No results for &quot;{search}&quot;</p>
               </div>
             )}
           </div>
@@ -112,13 +112,13 @@ export default function ExplorePage() {
         {!search.trim() && (
           <>
             <motion.div variants={fadeUp} className="mb-5">
-              <p className="text-[10px] text-white/20 uppercase tracking-wider mb-2.5">Browse</p>
+              <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-2.5">Browse</p>
               <div className="grid grid-cols-2 gap-2.5">
                 {categories.map((c) => (
                   <Link
                     key={c.id}
                     href={c.href}
-                    className="p-4 rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] transition-all group"
+                    className="p-4 rounded-2xl border border-gray-200 bg-gray-50 hover:bg-gray-50 transition-all group"
                   >
                     <div className="flex items-center justify-between mb-3">
                       <span className="text-2xl">{c.emoji}</span>
@@ -126,7 +126,7 @@ export default function ExplorePage() {
                         {c.count}
                       </span>
                     </div>
-                    <p className="text-sm font-semibold text-white group-hover:text-primary/90 transition-colors">{c.label}</p>
+                    <p className="text-sm font-semibold text-gray-900 group-hover:text-primary/90 transition-colors">{c.label}</p>
                   </Link>
                 ))}
               </div>
@@ -134,13 +134,13 @@ export default function ExplorePage() {
 
             {/* Trending searches */}
             <motion.div variants={fadeUp} className="mb-5">
-              <p className="text-[10px] text-white/20 uppercase tracking-wider mb-2.5">Trending</p>
+              <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-2.5">Trending</p>
               <div className="flex flex-wrap gap-2">
                 {trendingSearches.map((t) => (
                   <button
                     key={t}
                     onClick={() => setSearch(t)}
-                    className="px-3 py-1.5 bg-white/[0.03] border border-white/[0.06] rounded-full text-[11px] text-white/30 hover:text-white/50 hover:bg-white/[0.05] transition-all"
+                    className="px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-full text-[11px] text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition-all"
                   >
                     {t}
                   </button>
@@ -150,16 +150,16 @@ export default function ExplorePage() {
 
             {/* Happening now */}
             <motion.div variants={fadeUp}>
-              <p className="text-[10px] text-white/20 uppercase tracking-wider mb-2.5">Happening Now</p>
+              <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-2.5">Happening Now</p>
               <div className="space-y-2">
                 {quickResults.filter((r) => r.type === "game").map((r, i) => (
-                  <Link key={i} href={r.href} className="flex items-center gap-3 p-3 bg-white/[0.03] border border-white/[0.06] rounded-xl hover:bg-white/[0.05] transition-all">
+                  <Link key={i} href={r.href} className="flex items-center gap-3 p-3 bg-gray-50 border border-gray-200 rounded-xl hover:bg-gray-100 transition-all">
                     <div className="w-9 h-9 rounded-lg flex items-center justify-center text-lg" style={{ backgroundColor: `${r.color}10` }}>
                       {r.emoji}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-xs font-medium text-white">{r.title}</p>
-                      <p className="text-[10px] text-white/25">{r.sub}</p>
+                      <p className="text-xs font-medium text-gray-900">{r.title}</p>
+                      <p className="text-[10px] text-gray-500">{r.sub}</p>
                     </div>
                     <div className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
                   </Link>

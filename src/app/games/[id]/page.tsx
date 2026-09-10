@@ -100,18 +100,18 @@ export default function GameDetailPage() {
         @keyframes confetti { 0% { transform: translateY(0) scale(1); opacity:1 } 100% { transform: translateY(-40px) scale(0.5); opacity:0 } }
         .confetti { animation: confetti 0.8s ease-out forwards }
       `}</style>
-      <div className="fixed inset-0 bg-[#060606] flex flex-col">
+      <div className="fixed inset-0 bg-white flex flex-col">
         {/* Hero */}
         <div className="relative shrink-0" style={{ backgroundColor: `${game.color}08` }}>
           <div className="px-5 pt-5 pb-4">
             <div className="flex items-center justify-between mb-5">
               <button onClick={() => router.back()} className="w-9 h-9 bg-black/30 backdrop-blur-sm rounded-xl flex items-center justify-center">
-                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
               <button className="w-9 h-9 bg-black/30 backdrop-blur-sm rounded-xl flex items-center justify-center">
-                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                <svg className="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
                 </svg>
               </button>
@@ -122,12 +122,12 @@ export default function GameDetailPage() {
                 {game.emoji}
               </div>
               <div>
-                <h1 className="text-xl font-bold text-white">{game.title}</h1>
+                <h1 className="text-xl font-bold text-gray-900">{game.title}</h1>
                 <div className="flex items-center gap-2 mt-1">
                   <span className="px-2 py-0.5 rounded-md text-[10px] font-medium" style={{ backgroundColor: `${skillColors[game.skill]}15`, color: skillColors[game.skill] }}>
                     {game.skill}
                   </span>
-                  <span className="text-[11px] text-white/30">{game.sport}</span>
+                  <span className="text-[11px] text-gray-500">{game.sport}</span>
                 </div>
               </div>
             </div>
@@ -135,16 +135,16 @@ export default function GameDetailPage() {
             {/* Key info row */}
             <div className="grid grid-cols-3 gap-2">
               <div className="bg-black/20 rounded-xl p-2.5 text-center">
-                <p className="text-xs font-bold text-white">{game.time}</p>
-                <p className="text-[9px] text-white/25 mt-0.5">{game.date.split(",")[0]}</p>
+                <p className="text-xs font-bold text-gray-900">{game.time}</p>
+                <p className="text-[9px] text-gray-500 mt-0.5">{game.date.split(",")[0]}</p>
               </div>
               <div className="bg-black/20 rounded-xl p-2.5 text-center">
-                <p className="text-xs font-bold text-white">₹{game.price}</p>
-                <p className="text-[9px] text-white/25 mt-0.5">per player</p>
+                <p className="text-xs font-bold text-gray-900">₹{game.price}</p>
+                <p className="text-[9px] text-gray-500 mt-0.5">per player</p>
               </div>
               <div className="bg-black/20 rounded-xl p-2.5 text-center">
-                <p className="text-xs font-bold text-white">{game.distance}</p>
-                <p className="text-[9px] text-white/25 mt-0.5">away</p>
+                <p className="text-xs font-bold text-gray-900">{game.distance}</p>
+                <p className="text-[9px] text-gray-500 mt-0.5">away</p>
               </div>
             </div>
           </div>
@@ -152,13 +152,13 @@ export default function GameDetailPage() {
 
         {/* Tabs */}
         <div className="px-5 pt-3 pb-1 shrink-0">
-          <div className="flex gap-1 bg-white/[0.03] rounded-xl p-1">
+          <div className="flex gap-1 bg-gray-50 rounded-xl p-1">
             {(["details", "players", "chat"] as const).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`flex-1 py-2 rounded-lg text-xs font-medium transition-all ${
-                  activeTab === tab ? "bg-white/[0.08] text-white" : "text-white/30"
+                  activeTab === tab ? "bg-gray-100 text-gray-900" : "text-gray-500"
                 }`}
               >
                 {tab === "details" ? "Details" : tab === "players" ? `Players (${game.players.length}/${game.totalPlayers})` : "Chat"}
@@ -172,27 +172,27 @@ export default function GameDetailPage() {
           {activeTab === "details" && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               {/* Host */}
-              <div className="flex items-center gap-3 mb-4 p-3 bg-white/[0.03] border border-white/[0.06] rounded-xl">
+              <div className="flex items-center gap-3 mb-4 p-3 bg-gray-50 border border-gray-200 rounded-xl">
                 <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
                   <span className="text-sm font-bold text-primary">{game.host[0]}</span>
                 </div>
                 <div className="flex-1">
-                  <p className="text-xs font-medium text-white">{game.host}</p>
-                  <p className="text-[10px] text-white/25">Game Host</p>
+                  <p className="text-xs font-medium text-gray-900">{game.host}</p>
+                  <p className="text-[10px] text-gray-500">Game Host</p>
                 </div>
-                <button className="px-3 py-1.5 bg-white/[0.06] rounded-lg text-[10px] text-white/40 font-medium">Message</button>
+                <button className="px-3 py-1.5 bg-gray-100 rounded-lg text-[10px] text-gray-400 font-medium">Message</button>
               </div>
 
               {/* Description */}
               <div className="mb-4">
-                <h3 className="text-sm font-semibold text-white mb-2">About this game</h3>
-                <p className="text-xs text-white/40 leading-relaxed">{game.description}</p>
+                <h3 className="text-sm font-semibold text-gray-900 mb-2">About this game</h3>
+                <p className="text-xs text-gray-400 leading-relaxed">{game.description}</p>
               </div>
 
               {/* Venue */}
               <div className="mb-4">
-                <h3 className="text-sm font-semibold text-white mb-2">Venue</h3>
-                <div className="p-3 bg-white/[0.03] border border-white/[0.06] rounded-xl">
+                <h3 className="text-sm font-semibold text-gray-900 mb-2">Venue</h3>
+                <div className="p-3 bg-gray-50 border border-gray-200 rounded-xl">
                   <div className="flex items-start gap-3">
                     <div className="w-8 h-8 bg-blue-500/10 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
                       <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
@@ -201,8 +201,8 @@ export default function GameDetailPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-xs font-medium text-white">{game.venue}</p>
-                      <p className="text-[10px] text-white/25 mt-0.5">{game.venueAddress}</p>
+                      <p className="text-xs font-medium text-gray-900">{game.venue}</p>
+                      <p className="text-[10px] text-gray-500 mt-0.5">{game.venueAddress}</p>
                       <button className="mt-2 text-[10px] text-blue-400 font-medium">Get Directions</button>
                     </div>
                   </div>
@@ -211,26 +211,26 @@ export default function GameDetailPage() {
 
               {/* Rules */}
               <div className="mb-4">
-                <h3 className="text-sm font-semibold text-white mb-2">Game Rules</h3>
+                <h3 className="text-sm font-semibold text-gray-900 mb-2">Game Rules</h3>
                 <div className="space-y-1.5">
                   {game.rules.map((rule) => (
                     <div key={rule} className="flex items-center gap-2">
                       <div className="w-1 h-1 bg-primary/50 rounded-full shrink-0" />
-                      <span className="text-xs text-white/40">{rule}</span>
+                      <span className="text-xs text-gray-400">{rule}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Player fill status */}
-              <div className="p-3 bg-white/[0.03] border border-white/[0.06] rounded-xl mb-4">
+              <div className="p-3 bg-gray-50 border border-gray-200 rounded-xl mb-4">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs text-white/40">Player slots</span>
+                  <span className="text-xs text-gray-400">Player slots</span>
                   <span className="text-xs font-medium" style={{ color: spotsLeft <= 2 ? "#FF5722" : "#00E676" }}>
                     {spotsLeft} spot{spotsLeft !== 1 ? "s" : ""} remaining
                   </span>
                 </div>
-                <div className="h-2 bg-white/[0.06] rounded-full overflow-hidden mb-2">
+                <div className="h-2 bg-gray-100 rounded-full overflow-hidden mb-2">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${fillPercent}%` }}
@@ -239,7 +239,7 @@ export default function GameDetailPage() {
                     style={{ backgroundColor: game.color }}
                   />
                 </div>
-                <div className="flex items-center justify-between text-[10px] text-white/20">
+                <div className="flex items-center justify-between text-[10px] text-gray-500">
                   <span>{paidCount}/{game.players.length} paid</span>
                   <span>{game.players.length}/{game.totalPlayers} joined</span>
                 </div>
@@ -250,16 +250,16 @@ export default function GameDetailPage() {
           {activeTab === "players" && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-2">
               {game.players.map((p, i) => (
-                <div key={i} className="flex items-center gap-3 p-3 bg-white/[0.03] border border-white/[0.06] rounded-xl">
+                <div key={i} className="flex items-center gap-3 p-3 bg-gray-50 border border-gray-200 rounded-xl">
                   <div className="w-9 h-9 bg-primary/10 rounded-full flex items-center justify-center">
                     <span className="text-xs font-bold text-primary">{p.name[0]}</span>
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
-                      <p className="text-xs font-medium text-white">{p.name}</p>
+                      <p className="text-xs font-medium text-gray-900">{p.name}</p>
                       {i === 0 && <span className="text-[8px] px-1.5 py-0.5 bg-primary/10 text-primary rounded font-semibold">HOST</span>}
                     </div>
-                    <p className="text-[10px] text-white/25">{p.skill}</p>
+                    <p className="text-[10px] text-gray-500">{p.skill}</p>
                   </div>
                   <div className={`px-2 py-0.5 rounded text-[9px] font-medium ${p.paid ? "bg-primary/10 text-primary" : "bg-yellow-500/10 text-yellow-400"}`}>
                     {p.paid ? "Paid" : "Pending"}
@@ -267,13 +267,13 @@ export default function GameDetailPage() {
                 </div>
               ))}
               {spotsLeft > 0 && (
-                <div className="flex items-center gap-3 p-3 bg-white/[0.02] border border-dashed border-white/[0.06] rounded-xl">
-                  <div className="w-9 h-9 bg-white/[0.03] rounded-full flex items-center justify-center">
-                    <svg className="w-4 h-4 text-white/15" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                <div className="flex items-center gap-3 p-3 bg-gray-50 border border-dashed border-gray-200 rounded-xl">
+                  <div className="w-9 h-9 bg-gray-50 rounded-full flex items-center justify-center">
+                    <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                     </svg>
                   </div>
-                  <p className="text-xs text-white/20">{spotsLeft} more player{spotsLeft !== 1 ? "s" : ""} needed</p>
+                  <p className="text-xs text-gray-500">{spotsLeft} more player{spotsLeft !== 1 ? "s" : ""} needed</p>
                 </div>
               )}
             </motion.div>
@@ -282,20 +282,20 @@ export default function GameDetailPage() {
           {activeTab === "chat" && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex items-center justify-center h-full">
               <div className="text-center">
-                <div className="w-14 h-14 mx-auto mb-3 bg-white/[0.03] rounded-2xl flex items-center justify-center">
-                  <svg className="w-7 h-7 text-white/15" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1}>
+                <div className="w-14 h-14 mx-auto mb-3 bg-gray-50 rounded-2xl flex items-center justify-center">
+                  <svg className="w-7 h-7 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
                   </svg>
                 </div>
-                <p className="text-sm text-white/30 font-medium">Game Chat</p>
-                <p className="text-xs text-white/15 mt-1">Join the game to start chatting</p>
+                <p className="text-sm text-gray-500 font-medium">Game Chat</p>
+                <p className="text-xs text-gray-500 mt-1">Join the game to start chatting</p>
               </div>
             </motion.div>
           )}
         </div>
 
         {/* Bottom CTA */}
-        <div className="px-5 py-4 bg-[#0a0a0a] border-t border-white/[0.06] shrink-0">
+        <div className="px-5 py-4 bg-white border-t border-gray-200 shrink-0">
           {joined ? (
             <div className="flex items-center justify-center gap-2 py-3">
               <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center">

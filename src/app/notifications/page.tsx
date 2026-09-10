@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -78,7 +78,7 @@ const typeIcons: Record<NotifType, { bg: string; color: string; icon: React.Reac
     icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M18.75 4.236c.982.143 1.954.317 2.916.52A6.003 6.003 0 0016.27 9.728M18.75 4.236V4.5c0 2.108-.966 3.99-2.48 5.228m0 0a6.003 6.003 0 01-5.54 0m5.54 0L12 17.25l-2.52-7.522" /></svg>,
   },
   system: {
-    bg: "bg-white/[0.06]", color: "text-white/40",
+    bg: "bg-gray-100", color: "text-gray-400",
     icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" /></svg>,
   },
 };
@@ -96,17 +96,17 @@ export default function NotificationsPage() {
   }
 
   return (
-    <div className="fixed inset-0 bg-[#060606] flex flex-col">
+    <div className="fixed inset-0 bg-white flex flex-col">
       {/* Header */}
       <div className="px-5 pt-5 pb-3 shrink-0">
         <div className="flex items-center gap-3 mb-1">
-          <button onClick={() => router.back()} className="w-9 h-9 bg-white/[0.06] rounded-xl flex items-center justify-center shrink-0">
-            <svg className="w-4 h-4 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button onClick={() => router.back()} className="w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center shrink-0">
+            <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
           <div className="flex-1">
-            <h1 className="text-lg font-bold text-white">Notifications</h1>
+            <h1 className="text-lg font-bold text-gray-900">Notifications</h1>
             {unreadCount > 0 && (
               <p className="text-[11px] text-primary/60">{unreadCount} unread</p>
             )}
@@ -130,8 +130,8 @@ export default function NotificationsPage() {
                 variants={fadeUp}
                 className={`p-3.5 rounded-2xl border transition-all ${
                   n.read
-                    ? "bg-white/[0.02] border-white/[0.04]"
-                    : "bg-white/[0.04] border-white/[0.08]"
+                    ? "bg-gray-50 border-gray-100"
+                    : "bg-gray-50 border-gray-200"
                 }`}
               >
                 <div className="flex gap-3">
@@ -146,12 +146,12 @@ export default function NotificationsPage() {
                   )}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between gap-2 mb-0.5">
-                      <p className={`text-xs font-medium ${n.read ? "text-white/50" : "text-white"}`}>{n.title}</p>
+                      <p className={`text-xs font-medium ${n.read ? "text-gray-400" : "text-gray-900"}`}>{n.title}</p>
                       {!n.read && <div className="w-2 h-2 bg-primary rounded-full shrink-0 mt-1" />}
                     </div>
-                    <p className="text-[11px] text-white/25 leading-relaxed mb-2">{n.body}</p>
+                    <p className="text-[11px] text-gray-500 leading-relaxed mb-2">{n.body}</p>
                     <div className="flex items-center justify-between">
-                      <span className="text-[9px] text-white/15">{n.time}</span>
+                      <span className="text-[9px] text-gray-500">{n.time}</span>
                       {n.actionLabel && n.actionHref && (
                         <button
                           onClick={() => router.push(n.actionHref!)}

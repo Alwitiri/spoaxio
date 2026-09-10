@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -50,16 +50,16 @@ export default function ProfilePage() {
   const p = userProfile;
 
   return (
-    <div className="fixed inset-0 bg-[#060606] flex flex-col">
+    <div className="fixed inset-0 bg-white flex flex-col">
       {/* Header */}
       <div className="px-5 pt-5 pb-4 shrink-0">
         <div className="flex items-center justify-between mb-5">
-          <h1 className="text-lg font-bold text-white">Profile</h1>
-          <button onClick={() => router.push("/notifications")} className="relative w-9 h-9 bg-white/[0.06] rounded-xl flex items-center justify-center">
-            <svg className="w-4 h-4 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+          <h1 className="text-lg font-bold text-gray-900">Profile</h1>
+          <button onClick={() => router.push("/notifications")} className="relative w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center">
+            <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
             </svg>
-            <div className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-red-500 rounded-full border-2 border-[#060606]" />
+            <div className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-red-500 rounded-full border-2 border-white" />
           </button>
         </div>
 
@@ -69,8 +69,8 @@ export default function ProfilePage() {
             <span className="text-2xl font-bold text-primary">{p.avatar}</span>
           </div>
           <div className="flex-1">
-            <h2 className="text-xl font-bold text-white">{p.name}</h2>
-            <p className="text-xs text-white/25">{p.area}</p>
+            <h2 className="text-xl font-bold text-gray-900">{p.name}</h2>
+            <p className="text-xs text-gray-500">{p.area}</p>
             <div className="flex items-center gap-2 mt-1">
               <div className="flex items-center gap-1">
                 <svg className="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -78,11 +78,11 @@ export default function ProfilePage() {
                 </svg>
                 <span className="text-xs font-bold text-yellow-400">{p.stats.rating}</span>
               </div>
-              <span className="text-[10px] text-white/15">Since {p.memberSince}</span>
+              <span className="text-[10px] text-gray-500">Since {p.memberSince}</span>
             </div>
           </div>
-          <button className="w-9 h-9 bg-white/[0.06] rounded-xl flex items-center justify-center">
-            <svg className="w-4 h-4 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+          <button className="w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center">
+            <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125" />
             </svg>
           </button>
@@ -96,9 +96,9 @@ export default function ProfilePage() {
             { label: "Win Rate", value: `${p.stats.winRate}%` },
             { label: "Sports", value: p.sports.length },
           ].map((s) => (
-            <div key={s.label} className="bg-white/[0.03] rounded-xl p-2.5 text-center">
-              <p className="text-sm font-bold text-white">{s.value}</p>
-              <p className="text-[8px] text-white/20 mt-0.5">{s.label}</p>
+            <div key={s.label} className="bg-gray-50 rounded-xl p-2.5 text-center">
+              <p className="text-sm font-bold text-gray-900">{s.value}</p>
+              <p className="text-[8px] text-gray-500 mt-0.5">{s.label}</p>
             </div>
           ))}
         </div>
@@ -109,16 +109,16 @@ export default function ProfilePage() {
         {/* Upcoming games */}
         {p.upcomingGames.length > 0 && (
           <motion.div variants={fadeUp} className="mb-4">
-            <h3 className="text-sm font-semibold text-white mb-2">Upcoming Games</h3>
+            <h3 className="text-sm font-semibold text-gray-900 mb-2">Upcoming Games</h3>
             <div className="space-y-2">
               {p.upcomingGames.map((g, i) => (
                 <div key={i} className="flex items-center gap-3 p-3 bg-primary/[0.04] border border-primary/10 rounded-xl">
                   <div className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center text-lg">{g.sport}</div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-xs font-medium text-white">{g.title}</p>
-                    <p className="text-[10px] text-white/25">{g.time} · {g.venue}</p>
+                    <p className="text-xs font-medium text-gray-900">{g.title}</p>
+                    <p className="text-[10px] text-gray-500">{g.time} · {g.venue}</p>
                   </div>
-                  <svg className="w-4 h-4 text-white/15 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                  <svg className="w-4 h-4 text-gray-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                   </svg>
                 </div>
@@ -129,26 +129,26 @@ export default function ProfilePage() {
 
         {/* My Sports */}
         <motion.div variants={fadeUp} className="mb-4">
-          <h3 className="text-sm font-semibold text-white mb-2">My Sports</h3>
+          <h3 className="text-sm font-semibold text-gray-900 mb-2">My Sports</h3>
           <div className="flex gap-2 overflow-x-auto pb-1">
             {p.sports.map((s) => (
-              <div key={s.name} className="flex-shrink-0 w-[120px] p-3 bg-white/[0.03] border border-white/[0.06] rounded-xl">
+              <div key={s.name} className="flex-shrink-0 w-[120px] p-3 bg-gray-50 border border-gray-200 rounded-xl">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-lg">{s.emoji}</span>
-                  <span className="text-[11px] font-medium text-white">{s.name}</span>
+                  <span className="text-[11px] font-medium text-gray-900">{s.name}</span>
                 </div>
                 <span className="px-1.5 py-0.5 rounded text-[9px] font-medium" style={{ backgroundColor: `${skillColors[s.skill]}12`, color: skillColors[s.skill] }}>
                   {s.skill}
                 </span>
-                <p className="text-[9px] text-white/15 mt-1.5">{s.games} games</p>
+                <p className="text-[9px] text-gray-500 mt-1.5">{s.games} games</p>
               </div>
             ))}
-            <div className="flex-shrink-0 w-[120px] p-3 bg-white/[0.02] border border-dashed border-white/[0.06] rounded-xl flex items-center justify-center">
+            <div className="flex-shrink-0 w-[120px] p-3 bg-gray-50 border border-dashed border-gray-200 rounded-xl flex items-center justify-center">
               <div className="text-center">
-                <svg className="w-5 h-5 text-white/10 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                <svg className="w-5 h-5 text-gray-300 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                 </svg>
-                <span className="text-[9px] text-white/15">Add Sport</span>
+                <span className="text-[9px] text-gray-500">Add Sport</span>
               </div>
             </div>
           </div>
@@ -157,10 +157,10 @@ export default function ProfilePage() {
         {/* Badges */}
         {p.badges.length > 0 && (
           <motion.div variants={fadeUp} className="mb-4">
-            <h3 className="text-sm font-semibold text-white mb-2">Badges</h3>
+            <h3 className="text-sm font-semibold text-gray-900 mb-2">Badges</h3>
             <div className="flex gap-2">
               {p.badges.map((b) => (
-                <div key={b.name} className="flex items-center gap-2 bg-white/[0.03] border border-white/[0.06] rounded-xl px-3 py-2">
+                <div key={b.name} className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
                   <span className="text-sm">{b.icon}</span>
                   <span className="text-[10px] font-medium" style={{ color: b.color }}>{b.name}</span>
                 </div>
@@ -175,14 +175,14 @@ export default function ProfilePage() {
             <Link
               key={item.label}
               href={item.href}
-              className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/[0.03] transition-all"
+              className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-all"
             >
               <span className="text-base">{item.icon}</span>
               <div className="flex-1">
-                <p className="text-xs font-medium text-white/60">{item.label}</p>
-                <p className="text-[10px] text-white/20">{item.desc}</p>
+                <p className="text-xs font-medium text-gray-500">{item.label}</p>
+                <p className="text-[10px] text-gray-500">{item.desc}</p>
               </div>
-              <svg className="w-4 h-4 text-white/10" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+              <svg className="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
               </svg>
             </Link>
@@ -201,7 +201,7 @@ export default function ProfilePage() {
       </motion.div>
 
       {/* Bottom nav */}
-      <div className="px-4 py-2 bg-[#0a0a0a] border-t border-white/[0.06] shrink-0">
+      <div className="px-4 py-2 bg-white border-t border-gray-200 shrink-0">
         <div className="flex items-center justify-around">
           {[
             { label: "Home", href: "/home", icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>, active: false },
@@ -210,8 +210,8 @@ export default function ProfilePage() {
             { label: "Profile", href: "/profile", icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" /></svg>, active: true },
           ].map((item) => (
             <Link key={item.label} href={item.href} className="flex flex-col items-center gap-0.5 py-1">
-              <div className={item.active ? "text-primary" : "text-white/25"}>{item.icon}</div>
-              <span className={`text-[9px] font-medium ${item.active ? "text-primary" : "text-white/25"}`}>{item.label}</span>
+              <div className={item.active ? "text-primary" : "text-gray-500"}>{item.icon}</div>
+              <span className={`text-[9px] font-medium ${item.active ? "text-primary" : "text-gray-500"}`}>{item.label}</span>
             </Link>
           ))}
         </div>
@@ -220,11 +220,11 @@ export default function ProfilePage() {
       {/* Logout modal */}
       {showLogout && (
         <div className="fixed inset-0 z-50 bg-black/60 flex items-end justify-center p-5">
-          <motion.div initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="w-full bg-[#121212] border border-white/[0.08] rounded-2xl p-5">
-            <h3 className="text-base font-semibold text-white mb-1">Sign out?</h3>
-            <p className="text-xs text-white/30 mb-4">You&apos;ll need to sign in again to access your account.</p>
+          <motion.div initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="w-full bg-[#121212] border border-gray-200 rounded-2xl p-5">
+            <h3 className="text-base font-semibold text-gray-900 mb-1">Sign out?</h3>
+            <p className="text-xs text-gray-500 mb-4">You&apos;ll need to sign in again to access your account.</p>
             <div className="flex gap-2">
-              <button onClick={() => setShowLogout(false)} className="flex-1 py-3 bg-white/[0.06] rounded-xl text-xs font-medium text-white/40">Cancel</button>
+              <button onClick={() => setShowLogout(false)} className="flex-1 py-3 bg-gray-100 rounded-xl text-xs font-medium text-gray-400">Cancel</button>
               <button onClick={() => router.push("/login")} className="flex-1 py-3 bg-red-500/15 rounded-xl text-xs font-medium text-red-400">Sign Out</button>
             </div>
           </motion.div>

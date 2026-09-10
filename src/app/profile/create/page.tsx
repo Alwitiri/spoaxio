@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
@@ -37,7 +37,7 @@ export default function CreateProfilePage() {
         .orb-2{animation:drift2 13s ease-in-out infinite}
       `}</style>
 
-      <div className="fixed inset-0 bg-[#060606] overflow-hidden">
+      <div className="fixed inset-0 bg-white overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0">
           <div className="orb-1 absolute top-[5%] -right-16 w-52 h-52 rounded-full bg-primary/[0.06] blur-[80px]" />
@@ -48,14 +48,14 @@ export default function CreateProfilePage() {
         <div className="relative z-10 h-full flex flex-col">
           {/* Top bar */}
           <div className="flex items-center justify-between px-6 py-4 shrink-0">
-            <button onClick={() => router.back()} className="w-9 h-9 bg-white/[0.06] rounded-xl flex items-center justify-center">
-              <svg className="w-4 h-4 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button onClick={() => router.back()} className="w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center">
+              <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
             <button
               onClick={() => router.push("/home")}
-              className="text-sm text-white/40 hover:text-white/60 transition-colors"
+              className="text-sm text-gray-400 hover:text-gray-500 transition-colors"
             >
               Skip
             </button>
@@ -64,8 +64,8 @@ export default function CreateProfilePage() {
           {/* Content */}
           <div className="flex-1 px-6 overflow-y-auto min-h-0 pb-4">
             <div className="max-w-sm mx-auto w-full">
-              <h1 className="text-[28px] font-bold text-white mb-1">Set up your profile</h1>
-              <p className="text-white/40 text-sm mb-8">Let others know who you are</p>
+              <h1 className="text-[28px] font-bold text-gray-900 mb-1">Set up your profile</h1>
+              <p className="text-gray-400 text-sm mb-8">Let others know who you are</p>
 
               {/* Avatar */}
               <div className="flex justify-center mb-8">
@@ -73,11 +73,11 @@ export default function CreateProfilePage() {
                   onClick={() => fileRef.current?.click()}
                   className="relative group"
                 >
-                  <div className={`w-24 h-24 rounded-full flex items-center justify-center overflow-hidden border-2 transition-all ${avatar ? "border-primary/40" : "border-white/[0.08] border-dashed"}`}>
+                  <div className={`w-24 h-24 rounded-full flex items-center justify-center overflow-hidden border-2 transition-all ${avatar ? "border-primary/40" : "border-gray-200 border-dashed"}`}>
                     {avatar ? (
                       <img src={avatar} alt="" className="w-full h-full object-cover" />
                     ) : (
-                      <svg className="w-10 h-10 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1}>
+                      <svg className="w-10 h-10 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                       </svg>
                     )}
@@ -95,42 +95,42 @@ export default function CreateProfilePage() {
               {/* Fields */}
               <div className="space-y-4">
                 <div>
-                  <label className="block text-xs text-white/40 mb-1.5 font-medium uppercase tracking-wider">Display Name *</label>
+                  <label className="block text-xs text-gray-400 mb-1.5 font-medium uppercase tracking-wider">Display Name *</label>
                   <input
                     type="text"
                     placeholder="How should we call you?"
                     value={displayName}
                     onChange={(e) => setDisplayName(e.target.value)}
                     required
-                    className="w-full h-[48px] px-4 bg-white/[0.04] rounded-xl text-white text-[15px] placeholder:text-white/20 outline-none border border-white/[0.08] focus:border-primary/60 focus:bg-white/[0.06] transition-all"
+                    className="w-full h-[48px] px-4 bg-gray-50 rounded-xl text-gray-900 text-[15px] placeholder:text-gray-400 outline-none border border-gray-200 focus:border-primary/60 focus:bg-gray-100 transition-all"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs text-white/40 mb-1.5 font-medium uppercase tracking-wider">Bio</label>
+                  <label className="block text-xs text-gray-400 mb-1.5 font-medium uppercase tracking-wider">Bio</label>
                   <textarea
                     placeholder="Tell us about yourself..."
                     value={bio}
                     onChange={(e) => setBio(e.target.value)}
                     rows={3}
                     maxLength={150}
-                    className="w-full px-4 py-3 bg-white/[0.04] rounded-xl text-white text-[15px] placeholder:text-white/20 outline-none border border-white/[0.08] focus:border-primary/60 focus:bg-white/[0.06] transition-all resize-none"
+                    className="w-full px-4 py-3 bg-gray-50 rounded-xl text-gray-900 text-[15px] placeholder:text-gray-400 outline-none border border-gray-200 focus:border-primary/60 focus:bg-gray-100 transition-all resize-none"
                   />
-                  <p className="text-right text-[11px] text-white/20 mt-1">{bio.length}/150</p>
+                  <p className="text-right text-[11px] text-gray-500 mt-1">{bio.length}/150</p>
                 </div>
 
                 <div>
-                  <label className="block text-xs text-white/40 mb-1.5 font-medium uppercase tracking-wider">Date of Birth</label>
+                  <label className="block text-xs text-gray-400 mb-1.5 font-medium uppercase tracking-wider">Date of Birth</label>
                   <input
                     type="date"
                     value={dob}
                     onChange={(e) => setDob(e.target.value)}
-                    className="w-full h-[48px] px-4 bg-white/[0.04] rounded-xl text-white text-[15px] outline-none border border-white/[0.08] focus:border-primary/60 focus:bg-white/[0.06] transition-all [color-scheme:dark]"
+                    className="w-full h-[48px] px-4 bg-gray-50 rounded-xl text-gray-900 text-[15px] outline-none border border-gray-200 focus:border-primary/60 focus:bg-gray-100 transition-all [color-scheme:dark]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs text-white/40 mb-1.5 font-medium uppercase tracking-wider">Gender</label>
+                  <label className="block text-xs text-gray-400 mb-1.5 font-medium uppercase tracking-wider">Gender</label>
                   <div className="grid grid-cols-3 gap-2.5">
                     {["Male", "Female", "Other"].map((g) => (
                       <button
@@ -139,8 +139,8 @@ export default function CreateProfilePage() {
                         onClick={() => setGender(g)}
                         className={`h-[44px] rounded-xl text-sm font-medium transition-all border ${
                           gender === g
-                            ? "bg-primary/10 border-primary/30 text-white"
-                            : "bg-white/[0.03] border-white/[0.06] text-white/50 hover:bg-white/[0.06]"
+                            ? "bg-primary/10 border-primary/30 text-gray-900"
+                            : "bg-gray-50 border-gray-200 text-gray-400 hover:bg-gray-100"
                         }`}
                       >
                         {g}

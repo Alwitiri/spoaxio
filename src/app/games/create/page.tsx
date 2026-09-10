@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -73,18 +73,18 @@ export default function CreateGamePage() {
   }
 
   return (
-    <div className="fixed inset-0 bg-[#060606] flex flex-col">
+    <div className="fixed inset-0 bg-white flex flex-col">
       {/* Header */}
       <div className="px-5 pt-5 pb-3 shrink-0">
         <div className="flex items-center gap-3 mb-4">
-          <button onClick={() => (step > 1 && !created ? setStep(step - 1) : router.back())} className="w-9 h-9 bg-white/[0.06] rounded-xl flex items-center justify-center">
-            <svg className="w-4 h-4 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button onClick={() => (step > 1 && !created ? setStep(step - 1) : router.back())} className="w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center">
+            <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
           <div className="flex-1">
-            <h1 className="text-lg font-bold text-white">Create a Game</h1>
-            {!created && <p className="text-[11px] text-white/25 mt-0.5">Step {step} of 3</p>}
+            <h1 className="text-lg font-bold text-gray-900">Create a Game</h1>
+            {!created && <p className="text-[11px] text-gray-500 mt-0.5">Step {step} of 3</p>}
           </div>
         </div>
 
@@ -92,7 +92,7 @@ export default function CreateGamePage() {
         {!created && (
           <div className="flex gap-1.5">
             {[1, 2, 3].map((s) => (
-              <div key={s} className="flex-1 h-1 rounded-full overflow-hidden bg-white/[0.06]">
+              <div key={s} className="flex-1 h-1 rounded-full overflow-hidden bg-gray-100">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: step >= s ? "100%" : "0%" }}
@@ -112,8 +112,8 @@ export default function CreateGamePage() {
           {/* Step 1: Choose Sport */}
           {step === 1 && (
             <motion.div key="step1" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
-              <h2 className="text-sm font-semibold text-white mb-1">What sport?</h2>
-              <p className="text-xs text-white/25 mb-4">Pick the sport for your game</p>
+              <h2 className="text-sm font-semibold text-gray-900 mb-1">What sport?</h2>
+              <p className="text-xs text-gray-500 mb-4">Pick the sport for your game</p>
 
               <div className="grid grid-cols-3 gap-2.5">
                 {sportOptions.map((s) => (
@@ -123,12 +123,12 @@ export default function CreateGamePage() {
                     className={`p-4 rounded-2xl border transition-all text-center ${
                       sport === s.id
                         ? "border-primary/30 bg-primary/5"
-                        : "border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04]"
+                        : "border-gray-200 bg-gray-50 hover:bg-gray-50"
                     }`}
                     style={sport === s.id ? { borderColor: `${s.color}30`, backgroundColor: `${s.color}08` } : {}}
                   >
                     <span className="text-2xl block mb-1.5">{s.emoji}</span>
-                    <span className={`text-[11px] font-medium ${sport === s.id ? "text-white" : "text-white/40"}`}>{s.name}</span>
+                    <span className={`text-[11px] font-medium ${sport === s.id ? "text-gray-900" : "text-gray-400"}`}>{s.name}</span>
                   </button>
                 ))}
               </div>
@@ -139,30 +139,30 @@ export default function CreateGamePage() {
           {step === 2 && (
             <motion.div key="step2" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-4">
               <div>
-                <h2 className="text-sm font-semibold text-white mb-1">Game details</h2>
-                <p className="text-xs text-white/25 mb-4">Tell players what to expect</p>
+                <h2 className="text-sm font-semibold text-gray-900 mb-1">Game details</h2>
+                <p className="text-xs text-gray-500 mb-4">Tell players what to expect</p>
               </div>
 
               <div>
-                <label className="text-[10px] text-white/20 uppercase tracking-wider mb-1.5 block">Game Title</label>
+                <label className="text-[10px] text-gray-500 uppercase tracking-wider mb-1.5 block">Game Title</label>
                 <input
                   type="text"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   placeholder="e.g. 5v5 Evening Match"
-                  className="w-full px-4 py-3 bg-white/[0.04] border border-white/[0.08] rounded-xl text-sm text-white placeholder:text-white/15 focus:outline-none focus:border-primary/30"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-primary/30"
                 />
               </div>
 
               <div>
-                <label className="text-[10px] text-white/20 uppercase tracking-wider mb-1.5 block">Skill Level</label>
+                <label className="text-[10px] text-gray-500 uppercase tracking-wider mb-1.5 block">Skill Level</label>
                 <div className="flex gap-1.5 flex-wrap">
                   {skillLevels.map((s) => (
                     <button
                       key={s}
                       onClick={() => setSkill(s)}
                       className={`px-3 py-1.5 rounded-lg text-[11px] font-medium transition-all ${
-                        skill === s ? "bg-primary/15 text-primary border border-primary/25" : "bg-white/[0.04] text-white/30 border border-transparent"
+                        skill === s ? "bg-primary/15 text-primary border border-primary/25" : "bg-gray-50 text-gray-500 border border-transparent"
                       }`}
                     >
                       {s}
@@ -173,35 +173,35 @@ export default function CreateGamePage() {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-[10px] text-white/20 uppercase tracking-wider mb-1.5 block">Total Players</label>
-                  <div className="flex items-center gap-3 bg-white/[0.04] border border-white/[0.08] rounded-xl px-3 py-2">
-                    <button onClick={() => setTotalPlayers(Math.max(2, totalPlayers - 1))} className="w-7 h-7 bg-white/[0.06] rounded-lg flex items-center justify-center text-white/40">-</button>
-                    <span className="flex-1 text-center text-sm font-bold text-white">{totalPlayers}</span>
-                    <button onClick={() => setTotalPlayers(Math.min(30, totalPlayers + 1))} className="w-7 h-7 bg-white/[0.06] rounded-lg flex items-center justify-center text-white/40">+</button>
+                  <label className="text-[10px] text-gray-500 uppercase tracking-wider mb-1.5 block">Total Players</label>
+                  <div className="flex items-center gap-3 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+                    <button onClick={() => setTotalPlayers(Math.max(2, totalPlayers - 1))} className="w-7 h-7 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">-</button>
+                    <span className="flex-1 text-center text-sm font-bold text-gray-900">{totalPlayers}</span>
+                    <button onClick={() => setTotalPlayers(Math.min(30, totalPlayers + 1))} className="w-7 h-7 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">+</button>
                   </div>
                 </div>
                 <div>
-                  <label className="text-[10px] text-white/20 uppercase tracking-wider mb-1.5 block">Price / Player</label>
-                  <div className="flex items-center gap-2 bg-white/[0.04] border border-white/[0.08] rounded-xl px-3 py-2">
-                    <span className="text-white/25 text-sm">₹</span>
+                  <label className="text-[10px] text-gray-500 uppercase tracking-wider mb-1.5 block">Price / Player</label>
+                  <div className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-3 py-2">
+                    <span className="text-gray-500 text-sm">₹</span>
                     <input
                       type="number"
                       value={pricePerPlayer}
                       onChange={(e) => setPricePerPlayer(Number(e.target.value))}
-                      className="flex-1 bg-transparent text-sm font-bold text-white text-center focus:outline-none"
+                      className="flex-1 bg-transparent text-sm font-bold text-gray-900 text-center focus:outline-none"
                     />
                   </div>
                 </div>
               </div>
 
               <div>
-                <label className="text-[10px] text-white/20 uppercase tracking-wider mb-1.5 block">Description (optional)</label>
+                <label className="text-[10px] text-gray-500 uppercase tracking-wider mb-1.5 block">Description (optional)</label>
                 <textarea
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   rows={3}
                   placeholder="Any extra info for players..."
-                  className="w-full px-4 py-3 bg-white/[0.04] border border-white/[0.08] rounded-xl text-sm text-white placeholder:text-white/15 focus:outline-none focus:border-primary/30 resize-none"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-primary/30 resize-none"
                 />
               </div>
             </motion.div>
@@ -211,13 +211,13 @@ export default function CreateGamePage() {
           {step === 3 && !created && (
             <motion.div key="step3" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-4">
               <div>
-                <h2 className="text-sm font-semibold text-white mb-1">When & where?</h2>
-                <p className="text-xs text-white/25 mb-4">Pick a venue and time slot</p>
+                <h2 className="text-sm font-semibold text-gray-900 mb-1">When & where?</h2>
+                <p className="text-xs text-gray-500 mb-4">Pick a venue and time slot</p>
               </div>
 
               {/* Date picker */}
               <div>
-                <label className="text-[10px] text-white/20 uppercase tracking-wider mb-1.5 block">Date</label>
+                <label className="text-[10px] text-gray-500 uppercase tracking-wider mb-1.5 block">Date</label>
                 <div className="flex gap-2 overflow-x-auto pb-1">
                   {dates.map((d, i) => (
                     <button
@@ -226,13 +226,13 @@ export default function CreateGamePage() {
                       className={`flex-shrink-0 w-14 py-2.5 rounded-xl text-center transition-all border ${
                         selectedDate === i
                           ? "border-primary/30 bg-primary/10"
-                          : "border-white/[0.06] bg-white/[0.02]"
+                          : "border-gray-200 bg-gray-50"
                       }`}
                     >
-                      <p className={`text-[9px] font-medium ${selectedDate === i ? "text-primary" : "text-white/25"}`}>
+                      <p className={`text-[9px] font-medium ${selectedDate === i ? "text-primary" : "text-gray-500"}`}>
                         {d.isToday ? "Today" : d.day}
                       </p>
-                      <p className={`text-lg font-bold ${selectedDate === i ? "text-white" : "text-white/40"}`}>{d.date}</p>
+                      <p className={`text-lg font-bold ${selectedDate === i ? "text-gray-900" : "text-gray-400"}`}>{d.date}</p>
                     </button>
                   ))}
                 </div>
@@ -240,7 +240,7 @@ export default function CreateGamePage() {
 
               {/* Time */}
               <div>
-                <label className="text-[10px] text-white/20 uppercase tracking-wider mb-1.5 block">Time</label>
+                <label className="text-[10px] text-gray-500 uppercase tracking-wider mb-1.5 block">Time</label>
                 <div className="grid grid-cols-3 gap-1.5">
                   {timeSlots.map((t) => (
                     <button
@@ -249,7 +249,7 @@ export default function CreateGamePage() {
                       className={`py-2 rounded-lg text-[11px] font-medium transition-all border ${
                         selectedTime === t
                           ? "border-primary/30 bg-primary/10 text-primary"
-                          : "border-white/[0.06] bg-white/[0.02] text-white/30"
+                          : "border-gray-200 bg-gray-50 text-gray-500"
                       }`}
                     >
                       {t}
@@ -260,7 +260,7 @@ export default function CreateGamePage() {
 
               {/* Venue */}
               <div>
-                <label className="text-[10px] text-white/20 uppercase tracking-wider mb-1.5 block">Venue</label>
+                <label className="text-[10px] text-gray-500 uppercase tracking-wider mb-1.5 block">Venue</label>
                 <div className="space-y-2">
                   {venues.map((v) => (
                     <button
@@ -269,7 +269,7 @@ export default function CreateGamePage() {
                       className={`w-full text-left p-3 rounded-xl border transition-all flex items-center gap-3 ${
                         venue === v.id
                           ? "border-primary/30 bg-primary/5"
-                          : "border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04]"
+                          : "border-gray-200 bg-gray-50 hover:bg-gray-50"
                       }`}
                     >
                       <div className="w-9 h-9 bg-blue-500/10 rounded-lg flex items-center justify-center shrink-0">
@@ -279,8 +279,8 @@ export default function CreateGamePage() {
                         </svg>
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className={`text-xs font-medium ${venue === v.id ? "text-white" : "text-white/50"}`}>{v.name}</p>
-                        <p className="text-[10px] text-white/20">{v.area} · {v.price}</p>
+                        <p className={`text-xs font-medium ${venue === v.id ? "text-gray-900" : "text-gray-400"}`}>{v.name}</p>
+                        <p className="text-[10px] text-gray-500">{v.area} · {v.price}</p>
                       </div>
                       {venue === v.id && (
                         <div className="w-5 h-5 bg-primary/20 rounded-full flex items-center justify-center">
@@ -306,22 +306,22 @@ export default function CreateGamePage() {
                   </svg>
                 </div>
               </motion.div>
-              <h2 className="text-xl font-bold text-white mb-2">Game Created!</h2>
-              <p className="text-xs text-white/30 text-center mb-6 max-w-[250px]">
+              <h2 className="text-xl font-bold text-gray-900 mb-2">Game Created!</h2>
+              <p className="text-xs text-gray-500 text-center mb-6 max-w-[250px]">
                 Your game is live. Share it with players or wait for them to discover it.
               </p>
 
-              <div className="w-full bg-white/[0.03] border border-white/[0.06] rounded-2xl p-4 mb-4">
+              <div className="w-full bg-gray-50 border border-gray-200 rounded-2xl p-4 mb-4">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-11 h-11 rounded-xl flex items-center justify-center text-xl" style={{ backgroundColor: `${themeColor}12` }}>
                     {selectedSport?.emoji}
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-white">{title || "Untitled Game"}</p>
-                    <p className="text-[10px] text-white/25">{selectedSport?.name} · {skill}</p>
+                    <p className="text-sm font-semibold text-gray-900">{title || "Untitled Game"}</p>
+                    <p className="text-[10px] text-gray-500">{selectedSport?.name} · {skill}</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-4 text-[11px] text-white/30">
+                <div className="flex items-center gap-4 text-[11px] text-gray-500">
                   <span>{dates[selectedDate]?.full}</span>
                   <span>{selectedTime}</span>
                   <span>{totalPlayers} players</span>
@@ -329,7 +329,7 @@ export default function CreateGamePage() {
               </div>
 
               <div className="w-full flex gap-2">
-                <button onClick={() => router.push("/games")} className="flex-1 py-3 bg-white/[0.06] rounded-xl text-xs font-medium text-white/40">
+                <button onClick={() => router.push("/games")} className="flex-1 py-3 bg-gray-100 rounded-xl text-xs font-medium text-gray-400">
                   View All Games
                 </button>
                 <button className="flex-1 py-3 bg-primary/10 border border-primary/20 rounded-xl text-xs font-medium text-primary">
@@ -343,7 +343,7 @@ export default function CreateGamePage() {
 
       {/* Bottom CTA */}
       {!created && (
-        <div className="px-5 py-4 bg-[#0a0a0a] border-t border-white/[0.06] shrink-0">
+        <div className="px-5 py-4 bg-white border-t border-gray-200 shrink-0">
           <button
             onClick={() => (step < 3 ? setStep(step + 1) : handleCreate())}
             disabled={!canAdvance() || creating}

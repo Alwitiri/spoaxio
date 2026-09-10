@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -88,17 +88,17 @@ export default function GamesPage() {
   });
 
   return (
-    <div className="fixed inset-0 bg-[#060606] flex flex-col">
+    <div className="fixed inset-0 bg-white flex flex-col">
       {/* Header */}
       <div className="px-5 pt-5 pb-2 shrink-0">
         <div className="flex items-center gap-3 mb-4">
-          <button onClick={() => router.push("/home")} className="w-9 h-9 bg-white/[0.06] rounded-xl flex items-center justify-center shrink-0">
-            <svg className="w-4 h-4 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button onClick={() => router.push("/home")} className="w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center shrink-0">
+            <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
           <div className="flex-1">
-            <h1 className="text-lg font-bold text-white">Games Near You</h1>
+            <h1 className="text-lg font-bold text-gray-900">Games Near You</h1>
             <div className="flex items-center gap-1.5 mt-0.5">
               <div className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
               <p className="text-[11px] text-primary/60">{filtered.length} active games</p>
@@ -106,9 +106,9 @@ export default function GamesPage() {
           </div>
           <button
             onClick={() => setShowFilters(!showFilters)}
-            className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all ${showFilters ? "bg-primary/15 border border-primary/25" : "bg-white/[0.06]"}`}
+            className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all ${showFilters ? "bg-primary/15 border border-primary/25" : "bg-gray-100"}`}
           >
-            <svg className={`w-4 h-4 ${showFilters ? "text-primary" : "text-white/60"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+            <svg className={`w-4 h-4 ${showFilters ? "text-primary" : "text-gray-500"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
             </svg>
           </button>
@@ -123,7 +123,7 @@ export default function GamesPage() {
               className={`flex-shrink-0 px-3 py-1.5 rounded-full text-[11px] font-medium transition-all border ${
                 activeSport === s
                   ? "bg-primary/15 border-primary/25 text-primary"
-                  : "bg-white/[0.03] border-transparent text-white/30 hover:text-white/50"
+                  : "bg-gray-50 border-transparent text-gray-500 hover:text-gray-700"
               }`}
             >
               {s}
@@ -141,14 +141,14 @@ export default function GamesPage() {
           >
             <div className="pb-2 space-y-2.5">
               <div>
-                <p className="text-[10px] text-white/20 uppercase tracking-wider mb-1.5">Skill Level</p>
+                <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-1.5">Skill Level</p>
                 <div className="flex gap-1.5">
                   {skillFilters.map((s) => (
                     <button
                       key={s}
                       onClick={() => setActiveSkill(s)}
                       className={`px-2.5 py-1 rounded-lg text-[10px] font-medium transition-all ${
-                        activeSkill === s ? "bg-white/[0.08] text-white/70" : "bg-white/[0.03] text-white/25"
+                        activeSkill === s ? "bg-gray-100 text-gray-600" : "bg-gray-50 text-gray-500"
                       }`}
                     >
                       {s}
@@ -157,14 +157,14 @@ export default function GamesPage() {
                 </div>
               </div>
               <div>
-                <p className="text-[10px] text-white/20 uppercase tracking-wider mb-1.5">When</p>
+                <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-1.5">When</p>
                 <div className="flex gap-1.5">
                   {timeFilters.map((t) => (
                     <button
                       key={t}
                       onClick={() => setActiveTime(t)}
                       className={`px-2.5 py-1 rounded-lg text-[10px] font-medium transition-all ${
-                        activeTime === t ? "bg-white/[0.08] text-white/70" : "bg-white/[0.03] text-white/25"
+                        activeTime === t ? "bg-gray-100 text-gray-600" : "bg-gray-50 text-gray-500"
                       }`}
                     >
                       {t}
@@ -192,7 +192,7 @@ export default function GamesPage() {
               <motion.div key={game.id} variants={fadeUp}>
                 <Link
                   href={`/games/${game.id}`}
-                  className="block bg-white/[0.03] border border-white/[0.06] rounded-2xl p-4 hover:bg-white/[0.05] transition-all group"
+                  className="block bg-gray-50 border border-gray-200 rounded-2xl p-4 hover:bg-gray-100 transition-all group"
                 >
                   <div className="flex items-start gap-3 mb-3">
                     <div
@@ -204,15 +204,15 @@ export default function GamesPage() {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between">
                         <div>
-                          <h3 className="text-[14px] font-semibold text-white group-hover:text-primary/90 transition-colors">{game.title}</h3>
-                          <p className="text-[11px] text-white/30 mt-0.5">{game.sport} · {game.skill}</p>
+                          <h3 className="text-[14px] font-semibold text-gray-900 group-hover:text-primary/90 transition-colors">{game.title}</h3>
+                          <p className="text-[11px] text-gray-500 mt-0.5">{game.sport} · {game.skill}</p>
                         </div>
-                        <span className="text-sm font-bold text-white shrink-0 ml-2">₹{game.price}</span>
+                        <span className="text-sm font-bold text-gray-900 shrink-0 ml-2">₹{game.price}</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4 mb-3 text-[11px] text-white/35">
+                  <div className="flex items-center gap-4 mb-3 text-[11px] text-gray-500">
                     <div className="flex items-center gap-1">
                       <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -231,12 +231,12 @@ export default function GamesPage() {
                   {/* Player bar */}
                   <div className="flex items-center gap-3">
                     <div className="flex-1">
-                      <div className="h-1.5 bg-white/[0.06] rounded-full overflow-hidden">
+                      <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
                         <div className="h-full rounded-full transition-all" style={{ width: `${fillPercent}%`, backgroundColor: game.color }} />
                       </div>
                     </div>
                     <div className="flex items-center gap-2 shrink-0">
-                      <span className="text-[10px] text-white/25">{game.players.current}/{game.players.total}</span>
+                      <span className="text-[10px] text-gray-500">{game.players.current}/{game.players.total}</span>
                       <span
                         className="text-[10px] font-semibold px-1.5 py-0.5 rounded"
                         style={{
@@ -249,14 +249,14 @@ export default function GamesPage() {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between mt-2.5 pt-2.5 border-t border-white/[0.04]">
+                  <div className="flex items-center justify-between mt-2.5 pt-2.5 border-t border-gray-100">
                     <div className="flex items-center gap-1.5">
                       <div className="w-5 h-5 bg-primary/10 rounded-full flex items-center justify-center">
                         <span className="text-[8px] font-bold text-primary">{game.host[0]}</span>
                       </div>
-                      <span className="text-[10px] text-white/25">by {game.host}</span>
+                      <span className="text-[10px] text-gray-500">by {game.host}</span>
                     </div>
-                    <span className="text-[10px] text-white/20">{game.distance}</span>
+                    <span className="text-[10px] text-gray-500">{game.distance}</span>
                   </div>
                 </Link>
               </motion.div>
@@ -265,8 +265,8 @@ export default function GamesPage() {
 
           {filtered.length === 0 && (
             <div className="py-16 text-center">
-              <p className="text-white/30 text-sm mb-1">No games found</p>
-              <p className="text-white/15 text-xs">Try adjusting your filters</p>
+              <p className="text-gray-500 text-sm mb-1">No games found</p>
+              <p className="text-gray-500 text-xs">Try adjusting your filters</p>
             </div>
           )}
         </div>

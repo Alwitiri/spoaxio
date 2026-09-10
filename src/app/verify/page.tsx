@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -70,7 +70,7 @@ export default function VerifyPage() {
         .glow{animation:glow-pulse 5s ease-in-out infinite}
       `}</style>
 
-      <div className="fixed inset-0 bg-[#060606] overflow-hidden">
+      <div className="fixed inset-0 bg-white overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0">
           <div className="orb-1 absolute -top-20 -right-20 w-60 h-60 rounded-full bg-primary/[0.07] blur-[80px]" />
@@ -82,8 +82,8 @@ export default function VerifyPage() {
         <div className="relative z-10 h-full flex flex-col">
           {/* Top bar */}
           <div className="flex items-center px-6 py-4 shrink-0">
-            <Link href="/signup" className="w-9 h-9 bg-white/[0.06] rounded-xl flex items-center justify-center">
-              <svg className="w-4 h-4 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <Link href="/signup" className="w-9 h-9 bg-gray-100 rounded-xl flex items-center justify-center">
+              <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </Link>
@@ -101,8 +101,8 @@ export default function VerifyPage() {
                 </div>
               </div>
 
-              <h1 className="text-[28px] font-bold text-white text-center mb-2">Verify your email</h1>
-              <p className="text-white/40 text-sm text-center mb-8">
+              <h1 className="text-[28px] font-bold text-gray-900 text-center mb-2">Verify your email</h1>
+              <p className="text-gray-400 text-sm text-center mb-8">
                 We sent a 6-digit code to your email.<br />Enter it below to continue.
               </p>
 
@@ -127,9 +127,9 @@ export default function VerifyPage() {
                       onKeyDown={(e) => handleKeyDown(i, e)}
                       className={`w-12 h-14 text-center text-xl font-bold rounded-xl outline-none transition-all
                         ${digit
-                          ? "bg-primary/10 border-2 border-primary/40 text-white"
-                          : "bg-white/[0.04] border-2 border-white/[0.08] text-white"
-                        } focus:border-primary/60 focus:bg-white/[0.06]`}
+                          ? "bg-primary/10 border-2 border-primary/40 text-gray-900"
+                          : "bg-gray-50 border-2 border-gray-200 text-gray-900"
+                        } focus:border-primary/60 focus:bg-gray-100`}
                     />
                   ))}
                 </div>
@@ -149,12 +149,12 @@ export default function VerifyPage() {
               </form>
 
               <div className="text-center mt-6">
-                <p className="text-white/30 text-sm">
+                <p className="text-gray-500 text-sm">
                   Didn&apos;t receive the code?{" "}
                   <button
                     onClick={handleResend}
                     disabled={resendTimer > 0}
-                    className={`font-semibold transition-colors ${resendTimer > 0 ? "text-white/20" : "text-primary hover:text-primary/80"}`}
+                    className={`font-semibold transition-colors ${resendTimer > 0 ? "text-gray-500" : "text-primary hover:text-primary/80"}`}
                   >
                     {resendTimer > 0 ? `Resend in ${resendTimer}s` : "Resend"}
                   </button>
