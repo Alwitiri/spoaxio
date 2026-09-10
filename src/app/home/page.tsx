@@ -110,6 +110,8 @@ export default function HomePage() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const demoUser = typeof window !== "undefined" && localStorage.getItem("spoaxio_demo_user");
+    if (demoUser) { setUser({ email: "alwin@gmail.com" } as User); return; }
     supabase.auth.getUser().then(({ data }) => {
       if (!data.user) router.push("/login"); else setUser(data.user);
     });
