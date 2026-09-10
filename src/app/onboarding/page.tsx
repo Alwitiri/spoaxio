@@ -133,11 +133,7 @@ export default function OnboardingPage() {
         {/* Top bar */}
         <div className="relative z-10 flex items-center justify-between px-6 py-4 shrink-0">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <svg className="w-4 h-4 text-black" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM8.5 8c.83 0 1.5.67 1.5 1.5S9.33 11 8.5 11 7 10.33 7 9.5 7.67 8 8.5 8zm8.21 5.72C15.8 15.67 14.04 17 12 17s-3.8-1.33-4.71-3.28c-.16-.33.08-.72.45-.72h8.52c.37 0 .61.39.45.72zM15.5 11c-.83 0-1.5-.67-1.5-1.5S14.67 8 15.5 8s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
-              </svg>
-            </div>
+            <img src="/spoaxio-logo.png" alt="Spoaxio" className="w-8 h-8 object-contain" />
             <span className="text-sm font-bold tracking-widest text-white">SPOAXIO</span>
           </div>
           <button

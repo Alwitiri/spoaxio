@@ -1,10 +1,8 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-import { supabase } from "@/lib/supabase/client";
+import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import type { User } from "@supabase/supabase-js";
 import Link from "next/link";
 
 const liveGames = [
@@ -104,20 +102,11 @@ const fadeUp = {
 
 export default function HomePage() {
   const router = useRouter();
-  const [user, setUser] = useState<User | null>(null);
   const [activeTab, setActiveTab] = useState("home");
   const [activeSport, setActiveSport] = useState("All");
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const demoUser = typeof window !== "undefined" && localStorage.getItem("spoaxio_demo_user");
-    if (demoUser) { setUser({ email: "alwin@gmail.com" } as User); return; }
-    supabase.auth.getUser().then(({ data }) => {
-      if (!data.user) router.push("/login"); else setUser(data.user);
-    });
-  }, [router]);
-
-  const displayName = user?.user_metadata?.full_name?.split(" ")[0] || "Player";
+  const displayName = "Player";
   const greeting = new Date().getHours() < 12 ? "Good morning" : new Date().getHours() < 17 ? "Good afternoon" : "Good evening";
 
   const filteredGames = activeSport === "All"
